@@ -1,0 +1,993 @@
+item_id,title,difficulty
+1,(ISC)² Systems Security Certified Practitioner (SSCP),Beginner
+2,.NET FullStack Developer,Intermediate
+3,21st Century Energy Transition: how do we make it work?,Beginner
+4,A Crash Course in Causality:  Inferring Causal Effects from Observational Data,Intermediate
+5,A life with ADHD,Beginner
+6,AI & Law,Beginner
+7,AI Applications in Marketing and Finance,Mixed
+8,AI Applications in People Management,Mixed
+9,AI For Business,Beginner
+10,AI For Everyone,Beginner
+11,AI For Everyone （すべての人のためのAIリテラシー講座）,Beginner
+12,AI Foundations for Everyone,Beginner
+13,AI Foundations: Prompt Engineering with ChatGPT,Beginner
+14,AI Fundamentals for Non-Data Scientists,Mixed
+15,AI Product Management,Beginner
+16,AI Strategy and Governance,Beginner
+17,AI and Climate Change,Beginner
+18,AI and Public Health,Beginner
+19,AI for Good,Beginner
+20,AI for Medical Diagnosis,Intermediate
+21,AI for Medicine,Intermediate
+22,AI in Healthcare,Beginner
+23,"AI, Business & the Future of Work",Beginner
+24,"AI, Empathy & Ethics",Beginner
+25,AWS Cloud Practitioner Essentials,Beginner
+26,AWS Cloud Solutions Architect,Intermediate
+27,AWS Cloud Technical Essentials,Beginner
+28,AWS Cloud Technology Consultant,Beginner
+29,AWS Fundamentals,Beginner
+30,Abnormal Psychology,Beginner
+31,Academic English: Writing,Beginner
+32,Accelerated Computer Science Fundamentals,Intermediate
+33,Accounting: Principles of Financial Accounting,Beginner
+34,Achieving Personal and Professional Success,Beginner
+35,Addiction Treatment: Clinical Skills for Healthcare Providers,Beginner
+36,Advanced Business Analytics,Intermediate
+37,Advanced Data Science with IBM,Advanced
+38,Advanced Embedded Linux Development,Intermediate
+39,Advanced Learning Algorithms,Beginner
+40,Advanced Machine Learning on Google Cloud,Advanced
+41,"Advanced Valuation and Strategy - M&A, Private Equity, and Venture Capital",Advanced
+42,Agile Development,Beginner
+43,Agile Leadership,Beginner
+44,Agile Project Management,Beginner
+45,Agile with Atlassian Jira,Beginner
+46,Akamai Customer Consulting and Support,Beginner
+47,Akamai Network Engineering,Beginner
+48,Algae Biotechnology,Intermediate
+49,Algebra: Elementary to Advanced,Beginner
+50,Algorithms,Intermediate
+51,Algorithms for Battery Management Systems,Intermediate
+52,American Contract Law I,Beginner
+53,An Introduction to Accessibility and Inclusive Design,Beginner
+54,An Introduction to American Law,Beginner
+55,An Introduction to Consumer Neuroscience & Neuromarketing,Beginner
+56,An Introduction to Programming the Internet of Things (IOT),Beginner
+57,Analyze Data to Answer Questions,Beginner
+58,Analyze Datasets and Train ML Models using AutoML,Advanced
+59,Analyze Network Traffic with TCPDump,Intermediate
+60,Anatomy,Beginner
+61,Android App Development,Beginner
+62,Animal Behaviour and Welfare,Mixed
+63,Antibiotic Stewardship,Advanced
+64,Análisis de Datos de Google,Beginner
+65,Applied Computational Fluid Dynamics,Intermediate
+66,Applied Data Science,Beginner
+67,Applied Data Science Capstone,Intermediate
+68,Applied Data Science with Python,Intermediate
+69,Applied Data Science with R,Beginner
+70,Applied Software Engineering Fundamentals,Beginner
+71,Architecting with Google Compute Engine,Intermediate
+72,Architecting with Google Kubernetes Engine,Beginner
+73,Arizona State University TESOL,Beginner
+74,Arm Cortex-M Architecture and Software Development,Intermediate
+75,Artificial Intelligence in Marketing,Beginner
+76,Artificial Intelligence: an Overview,Beginner
+77,Arts and Heritage Management,Mixed
+78,Ask Questions to Make Data-Driven Decisions,Beginner
+79,Aspectos básicos de la asistencia técnica,Beginner
+80,Aspectos básicos del diseño de la experiencia del usuario,Beginner
+81,"Aspectos básicos: Datos, datos, en todas partes",Beginner
+82,Assess for Success: Marketing Analytics and Measurement,Beginner
+83,Assets in Accounting,Beginner
+84,"Assets, Threats, and Vulnerabilities",Beginner
+85,Astronomy: Exploring Time and Space,Beginner
+86,Attract and Engage Customers with Digital Marketing,Beginner
+87,Auditing I: Conceptual Foundations of Auditing,Intermediate
+88,Autodesk CAD/CAM/CAE for Mechanical Engineering,Intermediate
+89,Autodesk Certified Professional: AutoCAD for Design and Drafting Exam Prep,Advanced
+90,Autodesk Certified Professional: Revit for Architectural Design Exam Prep,Advanced
+91,Automate Cybersecurity Tasks with Python,Beginner
+92,"BI Foundations with SQL, ETL and Data Warehousing",Beginner
+93,BIM Fundamentals for Engineers,Beginner
+94,Battery Technologies,Beginner
+95,Bayesian Statistics,Intermediate
+96,Become a CBRS Certified Professional Installer by Google,Mixed
+97,Become a Journalist: Report the News!,Beginner
+98,Become an EMT,Beginner
+99,Behavioral Finance,Beginner
+100,Big Data,Beginner
+101,Bioinformatics,Beginner
+102,Biology Meets Programming: Bioinformatics for Beginners,Beginner
+103,Biostatistics in Public Health,Beginner
+104,Blockchain,Intermediate
+105,Blockchain Revolution,Beginner
+106,Blockchain Revolution in Financial Services,Beginner
+107,Bookkeeping Basics,Beginner
+108,"Brand Management: Aligning Business, Brand and Behaviour",Beginner
+109,Branding: The Creative Journey,Beginner
+110,Build Basic Generative Adversarial Networks (GANs),Intermediate
+111,Build Dynamic User Interfaces (UI) for Websites,Beginner
+112,Build Wireframes and Low-Fidelity Prototypes,Beginner
+113,Build a Modern Computer from First Principles: From Nand to Tetris (Project-Centered Course),Mixed
+114,Building AI Powered Chatbots Without Programming,Beginner
+115,Building Cloud Computing Solutions at Scale,Intermediate
+116,Building No-Code Apps with AppSheet,Beginner
+117,Business Analytics,Beginner
+118,Business Analytics with Excel: Elementary to Advanced,Intermediate
+119,Business Data Management and Communication,Intermediate
+120,Business English Communication Skills,Intermediate
+121,Business Foundations,Beginner
+122,Business Model Innovation,Mixed
+123,Business Statistics and Analysis,Beginner
+124,Business Strategies for A Better World,Beginner
+125,Business Strategy,Beginner
+126,Business Sustainability in the Circular Economy,Beginner
+127,Business Value and Project Management,Beginner
+128,Business Writing,Beginner
+129,Business and Financial Modeling,Beginner
+130,Business and Marketing Strategies,Beginner
+131,C Programming with Linux,Beginner
+132,C# Programming for Unity Game Development,Beginner
+133,C++ Programming for Unreal Game Development,Intermediate
+134,CAD and Digital Manufacturing,Intermediate
+135,COBOL Programming with VSCode,Beginner
+136,COVID-19 Contact Tracing,Beginner
+137,CVS Health Call Center Customer Service,Beginner
+138,CVS Health Retail Customer Service,Beginner
+139,Calculus for Machine Learning and Data Science,Beginner
+140,Cancer Biology,Beginner
+141,Capstone: Applying Project Management in the Real World,Beginner
+142,Career Success,Beginner
+143,Certified in Cybersecurity,Beginner
+144,ChatGPT Advanced Data Analysis,Beginner
+145,ChatGPT Playground for Beginners: Intro to NLP AI,Beginner
+146,ChatGPT for Beginners: Save time with Microsoft Excel,Intermediate
+147,Chemicals and Health,Beginner
+148,Child Nutrition and Cooking,Beginner
+149,Chinese for Beginners,Mixed
+150,Ciberseguridad de Google,Beginner
+151,Circular Economy - Sustainable Materials Management,Beginner
+152,Claves de la Dirección de Empresas,Beginner
+153,Climate Change and Sustainable Investing,Beginner
+154,Clinical Terminology for International and U.S. Students,Beginner
+155,Clinical Trials Operations,Beginner
+156,Cloud Application Development Foundations,Beginner
+157,Cloud Computing Law,Beginner
+158,Cloud-Native Development with OpenShift and Kubernetes,Intermediate
+159,Coaching Skills for Managers,Intermediate
+160,Coding for Beginners: An Easy Introduction,Beginner
+161,Coding for Everyone: C and C++,Beginner
+162,Communication Strategies for a Virtual Age,Beginner
+163,CompTIA a+_ cyber,Beginner
+164,CompTIA a+_ network,Beginner
+165,Competitive Strategy and Organization Design,Intermediate
+166,Computational Neuroscience,Beginner
+167,Computational Social Science,Beginner
+168,Computational Thinking for Problem Solving,Beginner
+169,Computer Vision for Engineering and Science,Intermediate
+170,"Concepts, Strategies, and Analytics in Performance Marketing and Digital Advertising",Beginner
+171,Conduct UX Research and Test Early Concepts,Beginner
+172,Conflict Management,Beginner
+173,Connect and Protect: Networks and Network Security,Beginner
+174,Connected Leadership,Beginner
+175,Construction Management,Beginner
+176,Construction Project Management,Beginner
+177,Contabilidad para no contadores,Beginner
+178,Convolutional Neural Networks,Intermediate
+179,Convolutional Neural Networks in TensorFlow,Intermediate
+180,Core Java,Intermediate
+181,Corporate & Commercial Law I: Contracts & Employment Law,Intermediate
+182,Corporate Strategy,Beginner
+183,Corporate Sustainability. Understanding and Seizing the Strategic Opportunity,Mixed
+184,Cost Accounting,Beginner
+185,Cost and Economics in Pricing Strategy,Beginner
+186,Country Level Economics: Macroeconomic Variables and Markets,Intermediate
+187,Crash Course on Python,Beginner
+188,Create High-Fidelity Designs and Prototypes in Figma,Beginner
+189,Creating Business Value with Data and Looker,Intermediate
+190,Creative Thinking: Techniques and Tools for Success,Beginner
+191,Creative Writing,Beginner
+192,Creative Writing: The Craft of Plot,Mixed
+193,Creativity and AI,Intermediate
+194,Cryptography I,Mixed
+195,Cultural Competence - Aboriginal Sydney,Beginner
+196,Culture-Driven Team Building,Beginner
+197,Curanderismo: Traditional Healing Using Plants,Beginner
+198,"Custom Models, Layers, and Loss Functions with TensorFlow",Intermediate
+199,Customer Analytics,Mixed
+200,Customer Experiences with Contact Center AI - Dialogflow CX,Beginner
+201,Customer Experiences with Contact Center AI - Dialogflow ES,Intermediate
+202,Customer Service Fundamentals,Beginner
+203,Cyber Security Fundamentals,Beginner
+204,Cybersecurity,Intermediate
+205,Cybersecurity Attack and Defense Fundamentals,Beginner
+206,Cybersecurity Compliance Framework & System Administration,Beginner
+207,Cybersecurity Operations Fundamentals,Beginner
+208,Cybersecurity Risk Management Frameworks,Beginner
+209,"Cybersecurity Roles, Processes & Operating System Security",Beginner
+210,Cybersecurity for Everyone,Beginner
+211,Cybersécurité Google,Beginner
+212,Data Analysis and Presentation Skills: the PwC Approach,Beginner
+213,Data Analysis and Visualization Foundations,Beginner
+214,Data Analysis with Python,Beginner
+215,Data Analysis with R,Beginner
+216,Data Analysis with R Programming,Beginner
+217,Data Analytics in the Public Sector with R,Intermediate
+218,Data Engineering Foundations,Beginner
+219,"Data Engineering, Big Data, and Machine Learning on GCP",Intermediate
+220,Data Literacy,Beginner
+221,Data Management for Clinical Research,Beginner
+222,Data Mining,Intermediate
+223,Data Science,Beginner
+224,Data Science Foundations: Statistical Inference,Intermediate
+225,Data Science Fundamentals with Python and SQL,Beginner
+226,Data Science Math Skills,Beginner
+227,Data Science Methodology,Beginner
+228,Data Science with Databricks for Data Analysts,Intermediate
+229,Data Science: Foundations using R,Beginner
+230,Data Science: Statistics and Machine Learning,Intermediate
+231,Data Structures and Algorithms,Intermediate
+232,Data Visualization & Dashboarding with R,Beginner
+233,Data Visualization and Dashboards with Excel and Cognos,Beginner
+234,Data Visualization with Python,Intermediate
+235,Data Visualization with Tableau,Beginner
+236,Data Warehousing for Business Intelligence,Advanced
+237,Data-driven Decision Making,Beginner
+238,Databases and SQL for Data Science with Python,Beginner
+239,Decentralized Finance (DeFi): The Future of Finance,Intermediate
+240,"Decisions, Decisions: Dashboards and Reports",Advanced
+241,Deep Learning,Intermediate
+242,Deep Neural Networks with PyTorch,Intermediate
+243,DeepLearning.AI TensorFlow Developer,Intermediate
+244,Deploying Machine Learning Models in Production,Advanced
+245,Desarrollador front-end de Meta,Beginner
+246,Design Thinking,Beginner
+247,Design a User Experience for Social Good & Prepare for Jobs,Beginner
+248,Design and Interpretation of Clinical Trials,Mixed
+249,DevOps on AWS,Intermediate
+250,"DevOps, Cloud, and Agile Foundations",Beginner
+251,Developing AI Applications with Python and Flask,Intermediate
+252,Developing APIs with Google Cloud's Apigee API Platform,Intermediate
+253,Developing Applications with Google Cloud,Intermediate
+254,Developing Front-End Apps with React,Intermediate
+255,Devenir entrepreneur du changement,Mixed
+256,Digital Fashion Innovation,Intermediate
+257,Digital Health,Intermediate
+258,Digital Manufacturing & Design Technology,Beginner
+259,Digital Marketing,Beginner
+260,Digital Marketing Strategy and Planning,Beginner
+261,Digital Product Management,Beginner
+262,Digital Product Management: Modern Fundamentals,Beginner
+263,Digital Signal Processing,Intermediate
+264,Digital Technologies and the Future of Manufacturing,Beginner
+265,Digital Transformation Using AI/ML with Google Cloud,Beginner
+266,Digitalisation in Aeronautics and Space,Intermediate
+267,Dino 101: Dinosaur Paleobiology,Beginner
+268,Diseño Instruccional: Aprendizaje activo y Pedagogía digital,Beginner
+269,Diseño de Experiencia del Usuario (UX) de Google,Beginner
+270,Diversity and inclusion in the workplace,Beginner
+271,Diversité et inclusion sur le lieu de travail,Beginner
+272,"Divide and Conquer, Sorting and Searching, and Randomized Algorithms",Intermediate
+273,Django for Everybody,Intermediate
+274,Dog Emotion and Cognition,Mixed
+275,Driving business towards the Sustainable Development Goals,Beginner
+276,Drug Development Product Management,Beginner
+277,Drug Discovery,Beginner
+278,Dynamic Public Speaking,Beginner
+279,ESG Risks and Opportunities,Beginner
+280,Economics of Money and Banking,Mixed
+281,"Effective Communication: Writing, Design, and Presentation",Beginner
+282,Electric Industry Operations and Markets,Beginner
+283,Electronic Music Production,Intermediate
+284,Embedding Sensors and Motors,Intermediate
+285,Emotional Intelligence: Cultivating Immensely Human Interactions,Intermediate
+286,"Energy Production, Distribution & Safety",Beginner
+287,Engineering Project Management,Beginner
+288,English for Business and Entrepreneurship,Beginner
+289,English for Career Development,Mixed
+290,English for Journalism,Mixed
+291,Entrepreneurial Finance: Strategy and Innovation,Intermediate
+292,Entrepreneurship,Beginner
+293,Entrepreneurship 1: Developing the Opportunity,Mixed
+294,Entrepreneurship Strategy: From Ideation to Exit,Beginner
+295,Entrepreneurship: Growing Your Business,Beginner
+296,Epidemiology in Public Health Practice,Beginner
+297,Equine Welfare and Management,Beginner
+298,Essentials in Clinical Simulations Across the Health Professions,Intermediate
+299,Essentials of Global Health,Mixed
+300,Ethical Leadership,Beginner
+301,"Ethics, Technology and Engineering",Beginner
+302,European Business Law,Beginner
+303,Evaluations of AI Applications in Healthcare,Beginner
+304,Everyday Excel,Beginner
+305,"Everyday Excel, Part 1",Beginner
+306,Everyday Parenting: The ABCs of Child Rearing,Beginner
+307,Exam Prep MLS-C01: AWS Certified Specialty Machine Learning,Beginner
+308,Excel Basics for Data Analysis,Beginner
+309,Excel Fundamentals for Data Analysis,Intermediate
+310,Excel Skills for Business,Beginner
+311,Excel Skills for Business: Essentials,Beginner
+312,Excel Skills for Business: Intermediate I,Intermediate
+313,Excel Skills for Data Analytics and Visualization,Intermediate
+314,Excel for Beginners: Introduction to Spreadsheets,Beginner
+315,Excel for Beginners: Pivot Tables,Beginner
+316,Excel to MySQL: Analytic Techniques for Business,Beginner
+317,Excel/VBA for Creative Problem Solving,Beginner
+318,Executive Data Science,Beginner
+319,Exploratory Data Analysis for Machine Learning,Intermediate
+320,Expressway to Data Science: Essential Math,Intermediate
+321,Expressway to Data Science: Python Programming,Beginner
+322,Extended Reality for Everybody,Beginner
+323,"Extract, Transform and Load Data in Power BI",Beginner
+324,FPGA Design for Embedded Systems,Intermediate
+325,"Federal Taxation I: Individuals, Employees, and Sole Proprietors",Intermediate
+326,"FinTech: Foundations, Payments, and Regulations",Beginner
+327,Finance & Quantitative Modeling for Analysts,Beginner
+328,Finance for Non-Finance Professionals,Beginner
+329,Finance for Non-Financial Managers,Intermediate
+330,Finance for Technical Managers,Beginner
+331,Financial Accounting Fundamentals,Beginner
+332,Financial Acumen for Non-Financial Managers,Beginner
+333,Financial Analysis - Skills for Success,Beginner
+334,Financial Engineering and Risk Management,Intermediate
+335,Financial Management,Intermediate
+336,Financial Markets,Beginner
+337,Financial Planning for Young Adults,Beginner
+338,Financial Reporting,Intermediate
+339,Financial Technology (Fintech) Innovations,Beginner
+340,Financing and Investing in Infrastructure,Mixed
+341,Finanzas corporativas,Intermediate
+342,Finding Purpose and Meaning In Life: Living for What Matters Most,Beginner
+343,Finding Your Professional Voice: Confidence & Impact,Beginner
+344,Fintech: Foundations & Applications of Financial Technology,Beginner
+345,First Principles of Computer Vision,Beginner
+346,First Step Korean,Beginner
+347,Fondamentaux de la cybersécurité,Beginner
+348,Food & Beverage Management,Mixed
+349,"Food Sustainability, Mindful Eating, and Healthy Cooking",Beginner
+350,Forensic Accounting and Fraud Examination,Mixed
+351,Formal Financial Accounting,Beginner
+352,Foundational Finance for Strategic Decision Making,Beginner
+353,Foundations for Assisting in Home Care,Mixed
+354,Foundations of Business Intelligence,Advanced
+355,Foundations of Business Strategy,Beginner
+356,Foundations of Cybersecurity,Beginner
+357,Foundations of Data Science,Advanced
+358,Foundations of Data Structures and Algorithms,Advanced
+359,Foundations of Digital Marketing and E-commerce,Beginner
+360,Foundations of Management,Beginner
+361,Foundations of Positive Psychology,Beginner
+362,Foundations of Project Management,Beginner
+363,Foundations of Public Health Practice,Beginner
+364,Foundations of Software Testing and Validation,Beginner
+365,Foundations of Teaching for Learning: Introduction,Mixed
+366,Foundations of User Experience (UX) Design,Beginner
+367,"Foundations: Data, Data, Everywhere",Beginner
+368,Fractal Data Science,Beginner
+369,From Data to Insights with Google Cloud,Beginner
+370,From Excel to Power BI,Beginner
+371,From Likes to Leads: Interact with Customers Online,Beginner
+372,Functional Programming in Scala,Intermediate
+373,Fundamentals of Accounting,Beginner
+374,Fundamentals of Computing,Beginner
+375,Fundamentals of Engineering Exam Review,Mixed
+376,Fundamentals of Finance,Beginner
+377,Fundamentals of Flight mechanics,Beginner
+378,Fundamentals of GIS,Beginner
+379,Fundamentals of Graphic Design,Beginner
+380,Fundamentals of Immunology,Intermediate
+381,Fundamentals of Machine Learning for Healthcare,Beginner
+382,Fundamentals of Music Theory,Beginner
+383,Fundamentals of Project Planning and Management,Beginner
+384,Fundamentals of Quantitative Modeling,Mixed
+385,Fundamentals of Reinforcement Learning,Intermediate
+386,Fundamentals of Social Media Advertising,Beginner
+387,Fundamentals of Technology Sales,Beginner
+388,Fundamentos de la ciberseguridad,Beginner
+389,Fundamentos de la gestión de proyectos,Beginner
+390,Fundamentos del marketing digital y comercio electrónico,Beginner
+391,Fundraising and Development,Beginner
+392,Futures Thinking,Beginner
+393,"GIS, Mapping, and Spatial Analysis",Beginner
+394,GPU Programming,Intermediate
+395,Game Design and Development with Unity 2020,Beginner
+396,Game Design: Art and Concepts,Beginner
+397,Game Theory,Beginner
+398,Gamification,Mixed
+399,Generative AI Primer,Beginner
+400,Generative AI for Everyone,Beginner
+401,Generative AI with Large Language Models,Intermediate
+402,Generative Adversarial Networks (GANs),Intermediate
+403,Genomic Data Science,Intermediate
+404,Geographic Information Systems  (GIS),Beginner
+405,Gestion de projet de Google,Beginner
+406,Gestión de Proyectos de Google,Beginner
+407,Get Started with Python,Advanced
+408,Getting Started with AI using IBM Watson,Beginner
+409,Getting Started with Git and GitHub,Beginner
+410,Getting Started with Power BI Desktop,Beginner
+411,Getting Started with SAS Programming,Beginner
+412,Getting started with Google Workspace,Beginner
+413,Giving Helpful Feedback,Beginner
+414,Global Diplomacy – Diplomacy in the Modern World,Mixed
+415,Global Diplomacy: the United Nations in the World,Beginner
+416,Global Procurement and Sourcing,Beginner
+417,Go Beyond the Numbers: Translate Data into Insights,Advanced
+418,Good with Words: Writing and Editing,Beginner
+419,Goodwill® Career Coach and Navigator,Beginner
+420,Google Advanced Data Analytics,Advanced
+421,Google Business Intelligence,Advanced
+422,Google Cloud Big Data and Machine Learning Fundamentals,Beginner
+423,Google Cloud Database Engineer,Intermediate
+424,Google Cloud Digital Leader Training,Beginner
+425,Google Cloud Fundamentals: Core Infrastructure,Beginner
+426,Google Cybersecurity,Beginner
+427,Google Data Analytics,Beginner
+428,Google Data Analytics (DE),Beginner
+429,Google Data Analytics (PT),Beginner
+430,Google Data Analytics Capstone: Complete a Case Study,Beginner
+431,Google Digital Marketing & E-commerce,Beginner
+432,Google IT Automation with Python,Beginner
+433,Google IT Support,Beginner
+434,Google IT Support (Deutsch),Beginner
+435,Google Marketing Digital e E-Commerce,Beginner
+436,Google Professional Workspace Administrator,Beginner
+437,Google Project Management,Beginner
+438,Google Project Management (DE),Beginner
+439,Google Project Management (PT),Beginner
+440,Google Project Management:,Beginner
+441,Google UX Design,Beginner
+442,Google UX Design (DE),Beginner
+443,Google UX Design (PT),Beginner
+444,Google شهادة تقنية المعلومات من,Beginner
+445,Google サイバーセキュリティ,Beginner
+446,Google データアナリティクス,Beginner
+447,Google 데이터 애널리틱스 수료증 이수 과정,Beginner
+448,Graphic Design,Beginner
+449,HRCI Human Resource Associate,Beginner
+450,HTML and CSS in depth,Beginner
+451,"HTML, CSS, and Javascript for Web Developers",Mixed
+452,Habilidades Gerenciales,Beginner
+453,Hands-on Introduction to Linux Commands and Shell Scripting,Beginner
+454,Harnessing the Power of Data with Power BI,Beginner
+455,Healing with the Arts,Mixed
+456,Health Behavior Change: From Evidence to Action,Beginner
+457,Health Informatics,Beginner
+458,Health Information Literacy for Data Analytics,Intermediate
+459,Healthcare IT Support,Beginner
+460,Healthcare Law,Intermediate
+461,Healthcare Organization Operations,Beginner
+462,Healthier Materials and Sustainable Building,Intermediate
+463,Healthy and Sustainable Foods and Products,Intermediate
+464,"Hotel Management: Distribution, Revenue and Demand Management",Beginner
+465,How Things Work: An Introduction to Physics,Intermediate
+466,How to Play Guitar,Beginner
+467,How to Write and Publish a Scientific Paper (Project-Centered Course),Mixed
+468,Human Anatomy and Medical Terminology Fundamentals,Beginner
+469,Human Resource Management: HR for People Managers,Beginner
+470,Human Resources Analytics,Mixed
+471,IA generativa en el aula,Beginner
+472,IBM & Darden Digital Strategy,Beginner
+473,IBM AI Engineering,Intermediate
+474,IBM AI Enterprise Workflow,Advanced
+475,IBM AI Foundations for Business,Beginner
+476,IBM Applied AI,Beginner
+477,IBM Applied DevOps Engineering,Intermediate
+478,IBM Back-End Development,Beginner
+479,IBM Cybersecurity Analyst,Beginner
+480,IBM Data Analyst,Beginner
+481,IBM Data Analytics with Excel and R,Beginner
+482,IBM Data Engineering,Beginner
+483,IBM Data Science,Beginner
+484,IBM Data Warehouse Engineer,Beginner
+485,IBM DevOps and Software Engineering,Beginner
+486,IBM Front-End Developer,Beginner
+487,IBM Full Stack Software Developer,Beginner
+488,IBM IT Project Manager,Beginner
+489,IBM IT Scrum Master,Beginner
+490,IBM IT Support,Beginner
+491,IBM Introduction to Machine Learning,Intermediate
+492,IBM Machine Learning,Intermediate
+493,IBM Mainframe Developer,Intermediate
+494,IBM Project Manager,Beginner
+495,IBM z/OS Mainframe Practitioner,Intermediate
+496,IELTS Preparation,Beginner
+497,IT Fundamentals for Cybersecurity,Beginner
+498,IT Security: Defense against the digital dark arts,Beginner
+499,IT Support Google,Beginner
+500,ITIL 4 Exam Preparation,Mixed
+501,Immunology: The Immune System and its Failures,Intermediate
+502,Impact Measurement & Management for the SDGs,Mixed
+503,Improve Your English Communication Skills,Beginner
+504,Improving Communication Skills,Beginner
+505,"Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization",Intermediate
+506,Improving Leadership & Governance in Nonprofit Organizations,Beginner
+507,In the Studio: Postwar Abstract Painting,Beginner
+508,Inclusive Leadership: The Power of Workplace Diversity,Beginner
+509,Indigenous Canada,Mixed
+510,Industrial Biotechnology,Beginner
+511,Infectious Disease Modelling,Intermediate
+512,"Influencing: Storytelling, Change Management and Governance",Beginner
+513,"Information Systems Auditing, Controls and Assurance",Beginner
+514,Information Technology (IT) and Cloud Fundamentals,Beginner
+515,Information​ ​Systems,Beginner
+516,Innovation Management,Beginner
+517,"Innovation Through Design: Think, Make, Break, Repeat",Beginner
+518,Innovation: From Creativity to Entrepreneurship,Beginner
+519,Innovative Teaching with ChatGPT,Beginner
+520,Inspired Leadership,Intermediate
+521,Inspiring and Motivating Individuals,Beginner
+522,Instructional Design Foundations and Applications,Mixed
+523,Instructional Methods in Health Professions Education,Intermediate
+524,Integrative Health and Medicine,Beginner
+525,Integrative Nursing,Beginner
+526,Intellectual Property Law,Intermediate
+527,Interaction Design,Intermediate
+528,International Business Essentials,Intermediate
+529,International Humanitarian Law in Theory and Practice,Beginner
+530,International Law In Action: Investigating and Prosecuting International Crimes,Mixed
+531,International Law in Action: the Arbitration of International Disputes,Mixed
+532,International Leadership and Organizational Behavior,Mixed
+533,International Marketing & Cross Industry Growth,Beginner
+534,International Organizations Management,Beginner
+535,International Women's Health and Human Rights,Beginner
+536,Interviewing and Resume Writing in English,Intermediate
+537,Introducción a la programación en Python I: Aprendiendo a programar con Python,Beginner
+538,Introduction to AI in the Data Center,Beginner
+539,Introduction to Agile Development and Scrum,Beginner
+540,Introduction to Artificial Intelligence (AI),Beginner
+541,Introduction to Back-End Development,Beginner
+542,"Introduction to Biology: Ecology, Evolution, & Biodiversity",Beginner
+543,Introduction to Business,Beginner
+544,Introduction to Calculus,Intermediate
+545,Introduction to Chemistry:  Reactions and Ratios,Beginner
+546,Introduction to Clinical Data,Beginner
+547,Introduction to Cloud Computing,Beginner
+548,Introduction to Computer Science and Programming,Beginner
+549,Introduction to Computer Vision and Image Processing,Beginner
+550,Introduction to Computers and Operating Systems and Security,Beginner
+551,Introduction to Corporate Finance,Mixed
+552,Introduction to Cyber Security,Beginner
+553,Introduction to Cybersecurity Tools & Cyber Attacks,Beginner
+554,Introduction to Data Analytics,Beginner
+555,Introduction to Data Engineering,Beginner
+556,Introduction to Data Science,Beginner
+557,Introduction to Data Science in Python,Intermediate
+558,Introduction to Deep Learning & Neural Networks with Keras,Intermediate
+559,Introduction to Dental Medicine,Beginner
+560,Introduction to DevOps,Beginner
+561,Introduction to Discrete Mathematics for Computer Science,Beginner
+562,Introduction to Electronics,Mixed
+563,Introduction to Embedded Systems Software and Development Environments,Intermediate
+564,Introduction to Engineering Mechanics,Mixed
+565,Introduction to English Common Law,Beginner
+566,Introduction to Environmental Law and Policy,Mixed
+567,Introduction to Environmental Science,Beginner
+568,Introduction to Finance and Accounting,Beginner
+569,Introduction to Finance: The Basics,Beginner
+570,Introduction to Financial Accounting,Mixed
+571,Introduction to Financial Accounting: The Accounting Cycle,Beginner
+572,"Introduction to Financial Analysis - The ""Why?""",Beginner
+573,Introduction to Financial Engineering and Risk Management,Intermediate
+574,Introduction to Forensic Science,Mixed
+575,Introduction to Front-End Development,Beginner
+576,Introduction to Generative AI,Beginner
+577,Introduction to Git and GitHub,Beginner
+578,Introduction to Good Clinical Practice,Beginner
+579,Introduction to Google SEO,Beginner
+580,Introduction to Hardware and Operating Systems,Beginner
+581,Introduction to Healthcare,Beginner
+582,Introduction to Industrial Bioprocess Development,Beginner
+583,Introduction to Large Language Models,Beginner
+584,Introduction to Logic and Critical Thinking,Beginner
+585,Introduction to Machine Learning,Intermediate
+586,Introduction to Machine Learning in Production,Advanced
+587,Introduction to Marketing,Mixed
+588,Introduction to Mathematical Thinking,Intermediate
+589,Introduction to Microsoft Azure Cloud Services,Beginner
+590,Introduction to Negotiation: A Strategic Playbook for Becoming a Principled and Persuasive Negotiator,Mixed
+591,Introduction to Operations Management,Beginner
+592,Introduction to Philosophy,Mixed
+593,Introduction to Probability and Data with R,Beginner
+594,Introduction to Programming with MATLAB,Beginner
+595,Introduction to Programming with Python and Java,Beginner
+596,Introduction to Project Management,Beginner
+597,Introduction to Psychology,Mixed
+598,Introduction to Public Relations and the Media,Beginner
+599,Introduction to Python Programming,Beginner
+600,Introduction to Responsible AI,Beginner
+601,Introduction to Scripting in Python,Beginner
+602,Introduction to Scrum Master Training,Beginner
+603,Introduction to Self-Driving Cars,Advanced
+604,Introduction to Social Media Marketing,Beginner
+605,Introduction to Software Engineering,Beginner
+606,Introduction to Spreadsheets and Models,Mixed
+607,Introduction to Statistics,Beginner
+608,Introduction to Sustainability,Mixed
+609,Introduction to Systematic Review and Meta-Analysis,Mixed
+610,Introduction to Systems Engineering,Mixed
+611,Introduction to Technical Support,Beginner
+612,"Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning",Intermediate
+613,Introduction to User Experience Design,Beginner
+614,Introduction to Web Development,Beginner
+615,"Introduction to Web Development with HTML, CSS, JavaScript",Beginner
+616,Introductory C Programming,Beginner
+617,Introductory Human Physiology,Beginner
+618,Intuit Academy Bookkeeping,Beginner
+619,Investment Management,Beginner
+620,Investment Management with Python and Machine Learning,Beginner
+621,Java FullStack Developer,Intermediate
+622,Java Programming and Software Engineering Fundamentals,Beginner
+623,JavaScript for Beginners,Beginner
+624,Key Technologies for Business,Beginner
+625,Leadership Skills,Beginner
+626,Leadership in 21st Century Organizations,Mixed
+627,Leading Diverse Teams & Organizations,Beginner
+628,Leading Healthcare Quality and Safety,Beginner
+629,Leading People and Teams,Beginner
+630,Leading the Modern Day Business,Beginner
+631,Leading: Human Resource Management and Leadership,Intermediate
+632,Learn Chinese: HSK Test Preparation,Beginner
+633,Learn English: Advanced Academic Speaking and Listening,Intermediate
+634,Learn English: Advanced Grammar and Punctuation,Advanced
+635,Learn English: Beginning Grammar,Beginner
+636,Learn English: Intermediate Grammar,Intermediate
+637,Learn SQL Basics for Data Science,Beginner
+638,Learn Spanish: Basic Spanish Vocabulary,Beginner
+639,Learn to Program: The Fundamentals,Beginner
+640,Learn to Speak Korean 1,Beginner
+641,Learning How to Learn: Powerful mental tools to help you master tough subjects,Beginner
+642,Learning Linux for LFCA Certification,Beginner
+643,Learning and Development,Beginner
+644,Learning for a Sustainable Future,Beginner
+645,Les Fondamentaux de la Négociation,Beginner
+646,Leverage Data Science for a More Agile Supply Chain,Intermediate
+647,Linear Algebra for Machine Learning and Data Science,Beginner
+648,Linear Circuits 1: DC Analysis,Mixed
+649,Linux and Private Cloud Administration on IBM Power Systems,Intermediate
+650,MATLAB Programming for Engineers and Scientists,Beginner
+651,MLOps | Machine Learning Operations,Advanced
+652,Machine Learning,Intermediate
+653,Machine Learning Data Lifecycle in Production,Advanced
+654,Machine Learning Engineering for Production (MLOps),Advanced
+655,Machine Learning Foundations for Product Managers,Beginner
+656,Machine Learning Modeling Pipelines in Production,Advanced
+657,Machine Learning and Reinforcement Learning in Finance,Intermediate
+658,Machine Learning for All,Beginner
+659,Machine Learning for Trading,Intermediate
+660,Machine Learning on Google Cloud,Intermediate
+661,Machine Learning with Python,Intermediate
+662,"Make the Sale: Build, Launch, and Manage E-commerce Stores",Beginner
+663,Making Architecture,Beginner
+664,Management Consulting,Beginner
+665,Management of Fashion and Luxury Companies,Mixed
+666,Managerial Accounting Fundamentals,Beginner
+667,Managerial Economics and Business Analysis,Beginner
+668,Managing Cybersecurity,Beginner
+669,Managing Emotions in Times of Uncertainty & Stress,Beginner
+670,Managing the Company of the Future,Mixed
+671,Marine Biology,Beginner
+672,Market Research,Beginner
+673,Marketing Analytics,Beginner
+674,Marketing Digital,Beginner
+675,Marketing Mix Implementation,Beginner
+676,Marketing Strategy,Beginner
+677,Marketing digital e e-commerce do Google,Beginner
+678,Marketing en redes sociales de Meta,Beginner
+679,Marketing with TikTok,Beginner
+680,Mastering Final Cut Pro,Beginner
+681,Mathematics for Engineers,Beginner
+682,Mathematics for Machine Learning,Beginner
+683,Mathematics for Machine Learning and Data Science,Beginner
+684,Mathematics for Machine Learning: Linear Algebra,Beginner
+685,Medical Billing and Coding Fundamentals,Beginner
+686,Medical Neuroscience,Advanced
+687,Medical Terminology,Beginner
+688,Memoir and Personal Essay: Write About Yourself,Beginner
+689,Mercados financieros,Beginner
+690,Mergers and Acquisitions,Intermediate
+691,Meta AR Developer,Intermediate
+692,Meta Android Developer,Beginner
+693,Meta Back-End Developer,Beginner
+694,Meta Database Engineer,Beginner
+695,Meta Front-End Developer,Beginner
+696,Meta Marketing Analytics,Beginner
+697,Meta React Native,Beginner
+698,Meta Social Media Marketing,Beginner
+699,Meta iOS Developer,Beginner
+700,Methods and Statistics in Social Sciences,Beginner
+701,Microeconomics Principles,Beginner
+702,Microeconomics: The Power of Markets,Mixed
+703,Microsoft 365 Fundamentals,Beginner
+704,Microsoft Azure AI Fundamentals AI-900 Exam Prep,Beginner
+705,Microsoft Azure Data Engineering Associate (DP-203),Intermediate
+706,Microsoft Azure Data Fundamentals DP-900 Exam Prep,Beginner
+707,Microsoft Azure Data Scientist Associate (DP-100),Intermediate
+708,Microsoft Azure Developer Associate (AZ-204),Intermediate
+709,Microsoft Azure Fundamentals AZ-900 Exam Prep,Beginner
+710,Microsoft Cybersecurity Analyst,Beginner
+711,Microsoft Power BI Data Analyst,Beginner
+712,Microsoft Power Platform Fundamentals,Beginner
+713,Microsoft Windows Defender and Firewall for Beginners,Beginner
+714,Miracles of Human Language: An Introduction to Linguistics,Beginner
+715,Model Thinking,Intermediate
+716,Modern Project Management,Beginner
+717,"Modern Robotics:  Mechanics, Planning, and Control",Intermediate
+718,Modern and Contemporary Art and Design,Beginner
+719,Moral Foundations of Politics,Mixed
+720,Music Business,Beginner
+721,Music Education for Teachers,Intermediate
+722,Music Production,Beginner
+723,Narrative Economics,Beginner
+724,Natural Language Processing,Intermediate
+725,Natural Language Processing in TensorFlow,Intermediate
+726,Natural Language Processing with Attention Models,Intermediate
+727,Natural Language Processing with Classification and Vector Spaces,Intermediate
+728,Natural Language Processing with Probabilistic Models,Intermediate
+729,Natural Language Processing with Sequence Models,Intermediate
+730,"Negotiation, Mediation and Conflict Resolution",Beginner
+731,Negotiations,Beginner
+732,Network Automation Engineering Fundamentals,Beginner
+733,Networking in Google Cloud,Intermediate
+734,Neural Networks and Deep Learning,Intermediate
+735,Neuroscience and Neuroimaging,Intermediate
+736,"NoSQL, Big Data, and Spark Foundations",Beginner
+737,Nuts and Bolts of U.S. Immigration Law,Intermediate
+738,OKR Certification: Leadership and Goal Setting,Beginner
+739,Object Oriented Java Programming: Data Structures and Beyond,Intermediate
+740,Object Oriented Programming in Java,Beginner
+741,Object-Oriented Data Structures in C++,Intermediate
+742,Oil & Gas Industry Operations and Markets,Mixed
+743,Omnichannel Retail Strategy,Beginner
+744,Operating Systems and You: Becoming a Power User,Beginner
+745,Optical Engineering,Advanced
+746,Oracle SQL Databases,Beginner
+747,Organizational Analysis,Beginner
+748,Organizational Change and Culture for Adopting Google Cloud,Beginner
+749,Organizational Leadership,Intermediate
+750,"Organizational Leadership in Diversity, Equity & Inclusion",Intermediate
+751,Overcoming Dyslexia,Beginner
+752,Palliative Care Always,Beginner
+753,Patient Safety,Beginner
+754,People Analytics,Mixed
+755,People and Soft Skills for Professional and Personal Success,Beginner
+756,Personal Branding: Stand Out and Succeed,Beginner
+757,Pharmacy Technician Fundamentals,Beginner
+758,Photography Basics and Beyond: From Smartphone to DSLR,Beginner
+759,Plant Bioinformatic Methods,Beginner
+760,Play It Safe: Manage Security Risks,Beginner
+761,Politics and Economics of International Energy,Beginner
+762,Positive Psychiatry and Mental Health,Mixed
+763,Positive Psychology: Martin E. P. Seligman’s Visionary Science,Beginner
+764,PostgreSQL for Everybody,Intermediate
+765,Power Electronics,Intermediate
+766,Practical Data Science on the AWS Cloud,Advanced
+767,Practical Data Science with MATLAB,Beginner
+768,Practical Guide to Trading,Beginner
+769,Pre-MBA Statistics,Beginner
+770,Precision Medicine,Intermediate
+771,Prepare Data for Exploration,Beginner
+772,Preparing  Data for Analysis with Microsoft Excel,Beginner
+773,Preparing for Google Cloud Certification: Cloud Architect,Intermediate
+774,Preparing for Google Cloud Certification: Cloud Data Engineer,Intermediate
+775,Preparing for Google Cloud Certification: Cloud DevOps Engineer,Beginner
+776,Preparing for Google Cloud Certification: Cloud Developer,Intermediate
+777,Preparing for Google Cloud Certification: Cloud Engineer,Intermediate
+778,Preparing for Google Cloud Certification: Cloud Network Engineer,Intermediate
+779,Preparing for Google Cloud Certification: Cloud Security Engineer,Intermediate
+780,Preparing for Google Cloud Certification: Machine Learning Engineer,Intermediate
+781,Pricing Strategy Optimization,Beginner
+782,Primeros Auxilios Psicológicos (PAP),Mixed
+783,Principles of Management,Mixed
+784,Principles of Sustainable Finance,Intermediate
+785,Private Equity and Venture Capital,Mixed
+786,Probabilistic Graphical Models,Advanced
+787,Probability & Statistics for Machine Learning & Data Science,Beginner
+788,Process Data from Dirty to Clean,Beginner
+789,"Product Ideation, Design, and Management",Beginner
+790,Professional Skills for the Workplace,Beginner
+791,Professionalism in Allied Health,Beginner
+792,"Programming Languages, Part A",Intermediate
+793,Programming for Everybody (Getting Started with Python),Beginner
+794,Programming in C++: A Hands-on Introduction,Beginner
+795,Programming with Google Go,Intermediate
+796,Programming with JavaScript,Beginner
+797,Project Execution,Beginner
+798,Project Execution: Running the Project,Beginner
+799,Project Initiation: Starting a Successful Project,Beginner
+800,Project Launch,Beginner
+801,Project Management,Beginner
+802,Project Management & Other Tools for Career Development,Beginner
+803,"Project Management Foundations, Initiation, and Planning",Beginner
+804,Project Management Principles and Practices,Beginner
+805,Project Management: Foundations and Initiation,Beginner
+806,Project Planning,Beginner
+807,Project Planning: Putting It All Together,Beginner
+808,Prompt Engineering for ChatGPT,Beginner
+809,Psychological First Aid,Mixed
+810,Psychological Research,Beginner
+811,Put It to Work: Prepare for Cybersecurity Jobs,Beginner
+812,PwC GST Taxation Executive,Beginner
+813,Python 3 Programming,Beginner
+814,Python Basics,Beginner
+815,Python Data Structures,Beginner
+816,"Python Functions, Files, and Dictionaries",Beginner
+817,Python Programming Fundamentals,Beginner
+818,Python Project for Data Engineering,Intermediate
+819,Python Project for Data Science,Intermediate
+820,Python and Statistics for Financial Analysis,Intermediate
+821,Python for Cybersecurity,Intermediate
+822,"Python for Data Science, AI & Development",Beginner
+823,Python for Everybody,Beginner
+824,"Python, Bash and SQL Essentials for Data Engineering",Beginner
+825,Qualitative Research Design and Methods for Public Health,Beginner
+826,Queering Identities: LGBTQ+ Sexuality and Gender Identity,Beginner
+827,React Basics,Beginner
+828,Real-World Product Management,Beginner
+829,Reducing Gun Violence in America: Evidence for Change,Beginner
+830,Regression Analysis: Simplify Complex Data Relationships,Advanced
+831,Regulatory Compliance,Intermediate
+832,Reinforcement Learning,Intermediate
+833,Removing Barriers to Change,Beginner
+834,Renewable Energy,Beginner
+835,Reporting extra-financier et stratégie RSE,Beginner
+836,Risk Management,Beginner
+837,Robotic Process Automation (RPA),Beginner
+838,Robotics,Beginner
+839,Réussir le Changement,Mixed
+840,SAP Professional Fundamentals,Beginner
+841,SAP Technology Consultant,Beginner
+842,SAS Advanced Programmer,Intermediate
+843,SAS Programmer,Beginner
+844,SAS Visual Business Analytics,Beginner
+845,SQL for Data Science,Beginner
+846,Sales Operations/Management,Beginner
+847,Sales Training for High Performing Teams,Beginner
+848,Sales and CRM Overview,Beginner
+849,Salesforce Sales Development Representative,Beginner
+850,Salesforce Sales Operations,Beginner
+851,Satisfaction Guaranteed: Develop Customer Loyalty Online,Beginner
+852,School Health for Children and Adolescents,Beginner
+853,Science of Exercise,Beginner
+854,Scrum Master,Beginner
+855,Scrum Master Certification,Beginner
+856,Search Engine Optimization (SEO),Beginner
+857,Security Analyst Fundamentals,Beginner
+858,Security Principles,Beginner
+859,Security in Google Cloud,Intermediate
+860,Self-Driving Cars,Advanced
+861,Sequence Models,Intermediate
+862,"Sequences, Time Series and Prediction",Intermediate
+863,Share Data Through the Art of Visualization,Beginner
+864,Site Reliability Engineering: Measuring and Managing Reliability,Intermediate
+865,Six Sigma Black Belt,Intermediate
+866,Six Sigma Green Belt,Intermediate
+867,Six Sigma Yellow Belt,Beginner
+868,Social Media Management,Beginner
+869,Social Media Marketing,Beginner
+870,Social Media Marketing in Practice,Beginner
+871,Social Psychology,Beginner
+872,Social and Economic Networks:  Models and Analysis,Advanced
+873,Software Architecture for Big Data,Advanced
+874,Software Design and Architecture,Beginner
+875,Software Development Lifecycle,Intermediate
+876,Software Product Management,Beginner
+877,Software Testing and Automation,Intermediate
+878,Solar Energy Basics,Beginner
+879,Solar Energy System Design,Intermediate
+880,"Songwriting: Writing, Arranging, and Producing Music",Beginner
+881,Soporte de Tecnologías de la Información de Google,Beginner
+882,Sound the Alarm: Detection and Response,Beginner
+883,Spanish for Successful Communication in Healthcare Settings,Intermediate
+884,"Spark, Hadoop, and Snowflake for Data Engineering",Advanced
+885,"Speak English Professionally: In Person, Online & On the Phone",Mixed
+886,Sports Marketing,Intermediate
+887,Sports Performance Analytics,Intermediate
+888,Spring Framework,Beginner
+889,Stanford Introduction to Food and Health,Beginner
+890,"Start the UX Design Process: Empathize, Define, and Ideate",Beginner
+891,Statistical Analysis with R for Public Health,Beginner
+892,Statistics with Python,Beginner
+893,Strategic Leadership and Management,Beginner
+894,"Strategic Leadership: Impact, Change, and Decision-Making",Beginner
+895,Strategic Management and Innovation,Beginner
+896,Strategic Sales Management,Intermediate
+897,Structuring Machine Learning Projects,Beginner
+898,Successful Negotiation: Essential Strategies and Skills,Beginner
+899,Suicide Prevention,Beginner
+900,Supervised Machine Learning: Regression and Classification,Beginner
+901,Suporte em TI do Google,Beginner
+902,Supply Chain Analytics,Beginner
+903,Supply Chain Logistics,Beginner
+904,Supply Chain Management,Beginner
+905,Supply Chain Principles,Mixed
+906,Survey Data Collection and Analytics,Beginner
+907,Sustainable Fashion,Beginner
+908,System Administration and IT Infrastructure Services,Beginner
+909,Systems Biology and Biotechnology,Intermediate
+910,"TESOL Certificate, Part 1: Teach English Now!",Beginner
+911,"TESOL Certificate, Part 2: Teach English Now!",Beginner
+912,TOEFL Preparation,Beginner
+913,Tableau Business Intelligence Analyst,Beginner
+914,Talent Acquisition,Beginner
+915,Tally Bookkeeper,Beginner
+916,Teach English Now! Foundational Principles,Mixed
+917,Teamwork Skills: Communicating Effectively in Groups,Beginner
+918,Technical Support Fundamentals,Beginner
+919,TensorFlow: Advanced Techniques,Intermediate
+920,TensorFlow: Data and Deployment,Intermediate
+921,Terrorism and Counterterrorism: Comparing Theory and Practice,Beginner
+922,The Art of Visual Storytelling,Beginner
+923,The Arts and Science of Relationships: Understanding Human Needs,Beginner
+924,The Bits and Bytes of Computer Networking,Beginner
+925,The Business of Health Care,Beginner
+926,The Business of Music Production,Beginner
+927,The DIY Musician,Beginner
+928,The Fundamentals of Personal Finance,Beginner
+929,The Manager's Toolkit: A Practical Guide to Managing People at Work,Mixed
+930,The Materiality of ESG Factors,Beginner
+931,"The Modern World, Part One: Global History from 1760 to 1910",Beginner
+932,The Path to Insights: Data Models and Pipelines,Advanced
+933,The Power of Statistics,Advanced
+934,The Pronunciation of American English,Beginner
+935,The Science of Well-Being,Mixed
+936,The Science of Well-Being for Teens,Beginner
+937,The Singer Songwriter,Beginner
+938,The Strategy of Content Marketing,Intermediate
+939,"The Sustainable Development Goals – A global, transdisciplinary vision for the future",Beginner
+940,The hidden value – Lean in manufacturing and services,Beginner
+941,Think Outside the Inbox: Email Marketing,Beginner
+942,Think like a CFO,Beginner
+943,Tools for Data Science,Beginner
+944,Tools of the Trade: Linux and SQL,Beginner
+945,Trading Strategies in Emerging Markets,Beginner
+946,Transforming the Fashion Business,Intermediate
+947,Translation in Practice,Beginner
+948,Troubles du spectre de l'autisme : diagnostic,Intermediate
+949,U.S. Federal Taxation,Intermediate
+950,UCI Project Management,Beginner
+951,UI / UX Design,Beginner
+952,Uncommon Sense Teaching,Beginner
+953,Understanding Basic SQL Syntax,Beginner
+954,Understanding Clinical Research: Behind the Statistics,Beginner
+955,Understanding Einstein: The Special Theory of Relativity,Beginner
+956,Understanding Research Methods,Mixed
+957,Understanding child development: from synapse to society,Beginner
+958,Understanding the Brain: The Neurobiology of Everyday Life,Beginner
+959,"Unsupervised Learning, Recommenders, Reinforcement Learning",Beginner
+960,User Experience Research and Design,Beginner
+961,User Interface Design,Intermediate
+962,Using Public Policy for Social Change,Beginner
+963,Using Python to Access Web Data,Beginner
+964,Using Python to Interact with the Operating System,Beginner
+965,Value Chain Management,Intermediate
+966,Value-Based Care,Beginner
+967,Version Control,Beginner
+968,Viral Marketing and How to Craft Contagious Content,Mixed
+969,Visual Elements of User Interface Design,Beginner
+970,Visualizing the Living Body: Diagnostic Imaging,Intermediate
+971,Vital Signs: Understanding What the Body Is Telling Us,Mixed
+972,Vivre avec le TDAH à travers les âges,Beginner
+973,Water Cooperation and Diplomacy,Intermediate
+974,Web Applications for Everybody,Intermediate
+975,Web Design for Everybody: Basics of Web Development & Coding,Beginner
+976,Weight Management: Beyond Balancing Calories,Beginner
+977,What is Compliance?,Mixed
+978,What is Data Science?,Beginner
+979,Wind Energy,Mixed
+980,Wine Tasting: Sensory Techniques for Wine Analysis,Beginner
+981,Wireshark for Beginners: Capture Packets,Beginner
+982,Work Smarter with Microsoft Excel,Beginner
+983,Work Smarter with Microsoft Word,Beginner
+984,Write A Feature Length Screenplay For Film Or Television,Beginner
+985,Write Professional Emails in English,Mixed
+986,Write Your First Novel,Beginner
+987,Writing in the Sciences,Beginner
+988,Étudier en France: French Intermediate course B1-B2,Intermediate
+989,Цифровий маркетинг і електронна комерція від Google,Beginner
+990,تحليلات البيانات من Google,Beginner
+991,用 Python 做商管程式設計（一）(Programming for Business Computing in Python (1)),Beginner
+992,用 Python 做商管程式設計（二）(Programming for Business Computing in Python (2)),Intermediate
