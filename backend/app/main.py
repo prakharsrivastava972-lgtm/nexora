@@ -10,7 +10,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+from backend.app.api.auth import router as auth_router
+app.include_router(auth_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
