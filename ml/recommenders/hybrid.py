@@ -55,6 +55,9 @@ def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
     )
 
     results = item_index.copy()
+    results["content_score"] = content_scores
+    results["collaborative_score"] = collab_scores
+    results["popularity_score"] = popularity_scores
     results["final_score"] = final_scores
     results = results[~results["item_id"].isin(user_items)]
     return results.sort_values("final_score", ascending=False).head(top_n)

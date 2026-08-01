@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from ml.recommenders.hybrid import get_hybrid_recommendations
+from ml.recommenders.explain import generate_explanation
 
 router = APIRouter(prefix="/api/recommendations", tags=["recommendations"])
 
@@ -10,4 +11,20 @@ def recommendations_for_user(user_id: int, top_n: int = 10):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-    return recs[["item_id", "title", "difficulty", "final_score"]].to_dict(orient="records")
+    results = []
+    for _, row in recs.iterrows():
+        explanation = generate_explanation(
+            content_score=row["content_score"],
+            collab_score=row["collaborative_score"],
+            popularity_score=row["popularity_score"],
+            difficulty=row["difficulty"],
+        )
+        results.append({
+            "item_id": int(row["item_id"]),
+            "title": row["title"],
+            "difficulty": row["difficulty"],
+            "final_score": round(float(row["final_score"]), 4),
+            "why_recommended": explanation,
+        })
+
+    return results
