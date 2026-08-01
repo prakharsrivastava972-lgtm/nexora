@@ -12,6 +12,10 @@ app.add_middleware(
 )
 from backend.app.api.auth import router as auth_router
 app.include_router(auth_router)
+from backend.app.api.recommendations import router as recommendations_router
+from backend.app.api.interactions import router as interactions_router
+app.include_router(recommendations_router)
+app.include_router(interactions_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
