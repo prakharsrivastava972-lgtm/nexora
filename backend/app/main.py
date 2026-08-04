@@ -21,6 +21,8 @@ app.include_router(recommendations_router)
 app.include_router(interactions_router)
 from backend.app.api.analytics import router as analytics_router
 app.include_router(analytics_router)
+from backend.app.api.items import router as items_router
+app.include_router(items_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
