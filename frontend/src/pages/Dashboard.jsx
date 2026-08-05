@@ -38,7 +38,9 @@ function Dashboard() {
         {recommendations.map((item) => (
           <div key={item.item_id} className="bg-slate-800 rounded-xl p-6 flex flex-col">
             <div className="flex justify-between items-start mb-2">
-              <h2 className="text-white font-semibold text-lg">{item.title}</h2>
+              <Link to={`/item/${item.item_id}`}>
+  <h2 className="text-white font-semibold text-lg hover:text-indigo-400 cursor-pointer">{item.title}</h2>
+</Link>
               <span className="text-indigo-400 text-sm font-medium whitespace-nowrap ml-2">
                 {Math.round(item.final_score * 100)}% Match
               </span>
