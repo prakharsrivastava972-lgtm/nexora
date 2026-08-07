@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 function Dashboard() {
+  const navigate = useNavigate();
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -36,11 +37,13 @@ function Dashboard() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map((item) => (
-          <div key={item.item_id} className="bg-slate-800 rounded-xl p-6 flex flex-col">
+          <div
+            key={item.item_id}
+            onClick={() => navigate(`/items/${item.item_id}`)}
+            className="bg-slate-800 rounded-xl p-6 flex flex-col cursor-pointer hover:bg-slate-750 transition-colors"
+          >
             <div className="flex justify-between items-start mb-2">
-              <Link to={`/item/${item.item_id}`}>
-  <h2 className="text-white font-semibold text-lg hover:text-indigo-400 cursor-pointer">{item.title}</h2>
-</Link>
+              <h2 className="text-white font-semibold text-lg">{item.title}</h2>
               <span className="text-indigo-400 text-sm font-medium whitespace-nowrap ml-2">
                 {Math.round(item.final_score * 100)}% Match
               </span>
@@ -61,19 +64,19 @@ function Dashboard() {
 
             <div className="flex gap-2 mt-auto">
               <button
-                onClick={() => handleInteract(item.item_id, "like")}
+                onClick={(e) => { e.stopPropagation(); handleInteract(item.item_id, "like"); }}
                 className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-sm font-medium"
               >
                 Like
               </button>
               <button
-                onClick={() => handleInteract(item.item_id, "save")}
+                onClick={(e) => { e.stopPropagation(); handleInteract(item.item_id, "save"); }}
                 className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-2 rounded text-sm font-medium"
               >
                 Save
               </button>
               <button
-                onClick={() => handleInteract(item.item_id, "dislike")}
+                onClick={(e) => { e.stopPropagation(); handleInteract(item.item_id, "dislike"); }}
                 className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-2 rounded text-sm font-medium"
               >
                 Not Interested
