@@ -26,7 +26,9 @@ function ItemDetail() {
   if (error) return <div className="min-h-screen bg-slate-900 text-red-400 p-8">{error}</div>;
   if (!item) return <div className="min-h-screen bg-slate-900 text-white p-8">Loading...</div>;
 
-  const skillsList = item.skills ? item.skills.split(",").map(s => s.trim()).filter(Boolean) : [];
+  const skillsList = item.skills
+    ? item.skills.replace(/[\[\]']/g, "").split(",").map(s => s.trim()).filter(Boolean)
+    : [];
 
   return (
     <div className="min-h-screen bg-slate-900 p-8">
