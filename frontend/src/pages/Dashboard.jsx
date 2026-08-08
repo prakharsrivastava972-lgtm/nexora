@@ -6,6 +6,7 @@ function Dashboard() {
   const navigate = useNavigate();
   const [recommendations, setRecommendations] = useState([]);
   const [trending, setTrending] = useState([]);
+  const [continueLearning, setContinueLearning] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -19,6 +20,10 @@ function Dashboard() {
     api.get("/trending")
       .then((res) => setTrending(res.data))
       .catch(() => {}); // trending is a nice-to-have, fail silently
+
+    api.get("/continue-learning")
+      .then((res) => setContinueLearning(res.data))
+      .catch(() => {}); // requires auth; fail silently if not logged in
   }, []);
 
   const handleInteract = async (itemId, eventType) => {
@@ -42,6 +47,27 @@ function Dashboard() {
 
       {loading && <p className="text-slate-400">Loading recommendations...</p>}
       {error && <p className="text-red-400">{error}</p>}
+
+      {continueLearning.length > 0 && (
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-white mb-6">Continue Learning</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {continueLearning.map((item) => (
+              <div
+                key={item.item_id}
+                onClick={() => navigate(`/items/${item.item_id}`)}
+                className="bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-750 transition-colors border-l-4 border-emerald-500"
+              >
+                <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
+                <div className="flex justify-between items-center">
+                  <span className="text-slate-400 text-sm">{item.difficulty}</span>
+                  {item.rating && <span className="text-amber-400 text-sm">★ {item.rating}</span>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map((item) => (
