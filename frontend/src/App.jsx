@@ -1,24 +1,27 @@
-import Search from "./pages/Search";
-import ItemDetail from "./pages/ItemDetail";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
+import Search from "./pages/Search";
+import ItemDetail from "./pages/ItemDetail";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/search" element={<Search />} />
-        <Route path="/items/:itemId" element={<ItemDetail />} />
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/analytics" element={<Analytics />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/items/:itemId" element={<ItemDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
