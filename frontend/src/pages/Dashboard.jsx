@@ -34,7 +34,10 @@ function Dashboard() {
     <div className="min-h-screen bg-slate-900 p-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-white">Your Personalized Learning Feed</h1>
-        <Link to="/analytics" className="text-indigo-400 underline">View Your Analytics</Link>
+        <div className="flex gap-4">
+          <Link to="/search" className="text-indigo-400 underline">Search</Link>
+          <Link to="/analytics" className="text-indigo-400 underline">View Your Analytics</Link>
+        </div>
       </div>
 
       {loading && <p className="text-slate-400">Loading recommendations...</p>}

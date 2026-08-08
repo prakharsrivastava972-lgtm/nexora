@@ -1,3 +1,4 @@
+import Search from "./pages/Search";
 import ItemDetail from "./pages/ItemDetail";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
@@ -9,6 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/search" element={<Search />} />
         <Route path="/items/:itemId" element={<ItemDetail />} />
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
