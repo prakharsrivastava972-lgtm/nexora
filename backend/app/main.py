@@ -25,6 +25,8 @@ from backend.app.api.items import router as items_router
 app.include_router(items_router)
 from backend.app.api.trending import router as trending_router
 app.include_router(trending_router)
+from backend.app.api.search import router as search_router
+app.include_router(search_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
