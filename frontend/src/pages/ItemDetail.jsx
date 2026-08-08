@@ -23,41 +23,41 @@ function ItemDetail() {
     }
   };
 
-  if (error) return <div className="min-h-screen bg-slate-900 text-red-400 p-8">{error}</div>;
-  if (!item) return <div className="min-h-screen bg-slate-900 text-white p-8">Loading...</div>;
+  if (error) return <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-red-500 dark:text-red-400 p-8">{error}</div>;
+  if (!item) return <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white p-8">Loading...</div>;
 
   const skillsList = item.skills
     ? item.skills.replace(/[\[\]']/g, "").split(",").map(s => s.trim()).filter(Boolean)
     : [];
 
   return (
-    <div className="min-h-screen bg-slate-900 p-8">
-      <button onClick={() => navigate(-1)} className="text-indigo-400 mb-6 inline-block">← Back</button>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 p-8">
+      <button onClick={() => navigate(-1)} className="text-indigo-600 dark:text-indigo-400 mb-6 inline-block">← Back</button>
 
-      <div className="max-w-3xl mx-auto bg-slate-800 rounded-xl p-8">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm dark:shadow-none">
         <div className="flex justify-between items-start mb-4">
-          <h1 className="text-3xl font-bold text-white">{item.title}</h1>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">{item.title}</h1>
           {item.rating && (
-            <span className="text-amber-400 font-medium whitespace-nowrap ml-4">★ {item.rating}</span>
+            <span className="text-amber-500 dark:text-amber-400 font-medium whitespace-nowrap ml-4">★ {item.rating}</span>
           )}
         </div>
 
         <div className="flex gap-3 mb-6">
-          <span className="bg-slate-700 text-slate-300 text-sm px-3 py-1 rounded-full">{item.difficulty}</span>
+          <span className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm px-3 py-1 rounded-full">{item.difficulty}</span>
           {item.category && (
-            <span className="bg-slate-700 text-slate-300 text-sm px-3 py-1 rounded-full">{item.category}</span>
+            <span className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm px-3 py-1 rounded-full">{item.category}</span>
           )}
         </div>
 
-        <h2 className="text-white font-semibold mb-2">Overview</h2>
-        <p className="text-slate-300 mb-6 leading-relaxed">{item.description}</p>
+        <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Overview</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">{item.description}</p>
 
         {skillsList.length > 0 && (
           <>
-            <h2 className="text-white font-semibold mb-2">Skills Covered</h2>
+            <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Skills Covered</h2>
             <div className="flex flex-wrap gap-2 mb-6">
               {skillsList.map((skill, i) => (
-                <span key={i} className="bg-indigo-600/20 text-indigo-300 text-sm px-3 py-1 rounded-full">
+                <span key={i} className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
                   {skill}
                 </span>
               ))}
@@ -74,7 +74,7 @@ function ItemDetail() {
           </button>
           <button
             onClick={() => handleInteract("save")}
-            className="flex-1 bg-slate-700 hover:bg-slate-600 text-white py-3 rounded font-medium"
+            className="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-3 rounded font-medium"
           >
             Save
           </button>

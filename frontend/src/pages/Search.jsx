@@ -28,8 +28,8 @@ function Search() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 p-8">
-      <h1 className="text-3xl font-bold text-white mb-6">Search Courses</h1>
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 p-8">
+      <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Search Courses</h1>
 
       <form onSubmit={handleSearch} className="flex gap-3 mb-8 flex-wrap">
         <input
@@ -37,12 +37,12 @@ function Search() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by title, skill, or topic..."
-          className="flex-1 min-w-[240px] px-4 py-2 rounded bg-slate-800 text-white outline-none border border-slate-700 focus:border-indigo-500"
+          className="flex-1 min-w-[240px] px-4 py-2 rounded bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none border border-slate-300 dark:border-slate-700 focus:border-indigo-500"
         />
         <select
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
-          className="px-4 py-2 rounded bg-slate-800 text-white outline-none border border-slate-700"
+          className="px-4 py-2 rounded bg-white dark:bg-slate-800 text-slate-900 dark:text-white outline-none border border-slate-300 dark:border-slate-700"
         >
           <option value="">All Levels</option>
           <option value="Beginner">Beginner</option>
@@ -58,10 +58,10 @@ function Search() {
         </button>
       </form>
 
-      {loading && <p className="text-slate-400">Searching...</p>}
+      {loading && <p className="text-slate-500 dark:text-slate-400">Searching...</p>}
 
       {searched && !loading && results.length === 0 && (
-        <p className="text-slate-400">No courses found. Try a different search term.</p>
+        <p className="text-slate-500 dark:text-slate-400">No courses found. Try a different search term.</p>
       )}
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,12 +69,12 @@ function Search() {
           <div
             key={item.item_id}
             onClick={() => navigate(`/items/${item.item_id}`)}
-            className="bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-750 transition-colors"
+            className="bg-white dark:bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors shadow-sm dark:shadow-none"
           >
-            <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
+            <h3 className="text-slate-900 dark:text-white font-semibold text-lg mb-2">{item.title}</h3>
             <div className="flex justify-between items-center">
-              <span className="text-slate-400 text-sm">{item.difficulty}</span>
-              {item.rating && <span className="text-amber-400 text-sm">★ {item.rating}</span>}
+              <span className="text-slate-500 dark:text-slate-400 text-sm">{item.difficulty}</span>
+              {item.rating && <span className="text-amber-500 dark:text-amber-400 text-sm">★ {item.rating}</span>}
             </div>
           </div>
         ))}
