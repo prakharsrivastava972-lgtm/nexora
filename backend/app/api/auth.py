@@ -1,9 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Header
 from sqlalchemy.orm import Session
 from backend.app.database.session import get_db
 from backend.app.models.tables import User
 from backend.app.schemas.user import UserCreate, UserLogin, UserOut, Token
-from backend.app.services.auth import hash_password, verify_password, create_access_token
+from backend.app.services.auth import hash_password, verify_password, create_access_token, decode_access_token
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -31,3 +31,15 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
 
     token = create_access_token({"sub": str(user.id)})
     return {"access_token": token, "token_type": "bearer"}
+
+@router.get("/me", response_model=UserOut)
+def get_current_user(authorization: str = Header(...), db: Session = Depends(get_db)):
+    token = authorization.replace("Bearer ", "")
+    payload = decode_access_token(token)
+    if not payload:
+        raise HTTPException(status_code=401, detail="Invalid or expired token")
+
+    user = db.query(User).filter(User.id == int(payload["sub"])).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
