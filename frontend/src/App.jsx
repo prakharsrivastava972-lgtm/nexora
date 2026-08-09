@@ -1,3 +1,4 @@
+import PlatformStats from "./pages/PlatformStats";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
 import Login from "./pages/Login";
@@ -12,6 +13,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/platform-stats" element={<PlatformStats />} />
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
