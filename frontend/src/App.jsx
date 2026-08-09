@@ -1,3 +1,4 @@
+import SavedItems from "./pages/SavedItems";
 import PlatformStats from "./pages/PlatformStats";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -13,6 +14,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/saved" element={<SavedItems />} />
           <Route path="/platform-stats" element={<PlatformStats />} />
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
