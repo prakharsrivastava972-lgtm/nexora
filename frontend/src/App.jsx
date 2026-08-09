@@ -1,3 +1,4 @@
+import Roadmap from "./pages/Roadmap";
 import Onboarding from "./pages/Onboarding";
 import SavedItems from "./pages/SavedItems";
 import PlatformStats from "./pages/PlatformStats";
@@ -15,6 +16,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/saved" element={<SavedItems />} />
           <Route path="/platform-stats" element={<PlatformStats />} />

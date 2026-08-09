@@ -58,6 +58,7 @@ function Dashboard() {
           </button>
           <Link to="/search" className="text-indigo-600 dark:text-indigo-400 underline">Search</Link>
           <Link to="/analytics" className="text-indigo-600 dark:text-indigo-400 underline">View Your Analytics</Link>
+          <Link to="/roadmap" className="text-indigo-600 dark:text-indigo-400 underline">Roadmap</Link>
           <Link to="/saved" className="text-indigo-600 dark:text-indigo-400 underline">Saved</Link>
           <Link to="/platform-stats" className="text-indigo-600 dark:text-indigo-400 underline">Platform Stats</Link>
         </div>
