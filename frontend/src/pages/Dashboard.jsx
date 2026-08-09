@@ -13,7 +13,11 @@ function Dashboard() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    api.get("/recommendations/1")
+    api.get("/auth/me")
+      .then((meRes) => {
+        const userId = meRes.data.id;
+        return api.get(`/recommendations/${userId}`);
+      })
       .then((res) => setRecommendations(res.data))
       .catch((err) => setError(err.response?.data?.detail || "Failed to load recommendations"))
       .finally(() => setLoading(false));

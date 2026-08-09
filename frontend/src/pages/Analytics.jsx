@@ -13,7 +13,8 @@ function Analytics() {
   const axisColor = theme === "dark" ? "#94a3b8" : "#475569";
 
   useEffect(() => {
-    api.get("/users/1/analytics")
+    api.get("/auth/me")
+      .then((meRes) => api.get(`/users/${meRes.data.id}/analytics`))
       .then((res) => setData(res.data))
       .catch((err) => setError(err.response?.data?.detail || "Failed to load analytics"));
   }, []);
