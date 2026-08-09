@@ -37,6 +37,8 @@ from backend.app.api.preferences import router as preferences_router
 app.include_router(preferences_router)
 from backend.app.api.explore import router as explore_router
 app.include_router(explore_router)
+from backend.app.api.roadmap import router as roadmap_router
+app.include_router(roadmap_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}

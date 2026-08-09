@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Text
+from sqlalchemy import Column, Integer, String, Float, Boolean, ForeignKey, DateTime, Text
 from sqlalchemy.sql import func
 from backend.app.database.session import Base
 
@@ -42,3 +42,31 @@ class Feedback(Base):
     item_id = Column(Integer, ForeignKey("items.id"), nullable=False)
     feedback_type = Column(String, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class Roadmap(Base):
+    __tablename__ = "roadmaps"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    goal = Column(String, nullable=False)
+    level = Column(String, nullable=False)
+    duration = Column(String, nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class RoadmapStage(Base):
+    __tablename__ = "roadmap_stages"
+    id = Column(Integer, primary_key=True, index=True)
+    roadmap_id = Column(Integer, ForeignKey("roadmaps.id"), nullable=False)
+    title = Column(String, nullable=False)
+    order_index = Column(Integer, nullable=False)
+    duration = Column(String)
+    difficulty = Column(String)
+
+class RoadmapTopic(Base):
+    __tablename__ = "roadmap_topics"
+    id = Column(Integer, primary_key=True, index=True)
+    stage_id = Column(Integer, ForeignKey("roadmap_stages.id"), nullable=False)
+    name = Column(String, nullable=False)
+    estimated_hours = Column(Integer, default=4)
+    order_index = Column(Integer, nullable=False)
+    completed = Column(Boolean, default=False)
+    already_known = Column(Boolean, default=False)
