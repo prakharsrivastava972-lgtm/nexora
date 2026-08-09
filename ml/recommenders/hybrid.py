@@ -5,9 +5,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from collections import Counter
 
 WEIGHTS = {
-    "content": 0.40,
-    "collaborative": 0.35,
-    "popularity": 0.25,
+    "content": 0.35,
+    "collaborative": 0.30,
+    "popularity": 0.20,
+    "recency": 0.15,
 }
 
 def normalize(arr):
@@ -22,7 +23,7 @@ def parse_skills(skills_str):
     cleaned = skills_str.replace("[", "").replace("]", "").replace("'", "")
     return [s.strip() for s in cleaned.split(",") if s.strip()]
 
-def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
+def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models", db_session=None):
     tfidf_matrix = joblib.load(f"{model_dir}/tfidf_matrix.pkl")
     item_index = pd.read_csv(f"{model_dir}/item_index.csv")
     cf_model = joblib.load(f"{model_dir}/collaborative_model.pkl")
@@ -55,16 +56,38 @@ def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
     content_scores = normalize(content_scores)
     collab_scores = normalize(collab_scores)
 
+    # Recency score: boosts items similar to the user's MOST RECENTLY interacted items,
+    # using real interaction timestamps from the database (falls back to 0 if unavailable).
+    recency_scores = np.zeros(len(item_index))
+    if db_session is not None:
+        try:
+            from sqlalchemy import text
+            recent_rows = db_session.execute(text("""
+                SELECT item_id FROM interactions
+                WHERE user_id = :user_id
+                ORDER BY created_at DESC
+                LIMIT 5
+            """), {"user_id": user_id}).fetchall()
+            recent_item_ids = [r[0] for r in recent_rows]
+            recent_positions = item_index[item_index["item_id"].isin(recent_item_ids)].index.tolist()
+            if recent_positions:
+                recency_scores = cosine_similarity(tfidf_matrix[recent_positions], tfidf_matrix).mean(axis=0)
+                recency_scores = normalize(recency_scores)
+        except Exception:
+            pass  # recency is an enhancement, never block recommendations if it fails
+
     final_scores = (
         WEIGHTS["content"] * content_scores +
         WEIGHTS["collaborative"] * collab_scores +
-        WEIGHTS["popularity"] * popularity_scores
+        WEIGHTS["popularity"] * popularity_scores +
+        WEIGHTS["recency"] * recency_scores
     )
 
     results = item_index.copy()
     results["content_score"] = content_scores
     results["collaborative_score"] = collab_scores
     results["popularity_score"] = popularity_scores
+    results["recency_score"] = recency_scores
     results["final_score"] = final_scores
     results = results[~results["item_id"].isin(user_items)]
     top_results = results.sort_values("final_score", ascending=False).head(top_n).copy()
@@ -72,7 +95,6 @@ def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
     # --- Build explanation context: matched skills + top category ---
     items_by_id = items.set_index("item_id")
 
-    # User's skill vocabulary, built from items they've interacted with
     user_skill_counter = Counter()
     for iid in user_items:
         if iid in items_by_id.index:
@@ -80,7 +102,6 @@ def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
                 user_skill_counter[skill] += 1
     user_skills = set(user_skill_counter.keys())
 
-    # User's most common category (using organization as a proxy)
     user_category_counter = Counter()
     for iid in user_items:
         if iid in items_by_id.index:
@@ -103,4 +124,4 @@ def get_hybrid_recommendations(user_id, top_n=10, model_dir="ml/models"):
 if __name__ == "__main__":
     recs = get_hybrid_recommendations(user_id=1, top_n=10)
     print("Top 10 hybrid recommendations for User 1:\n")
-    print(recs[["item_id", "title", "difficulty", "final_score", "matched_skills"]].to_string(index=False))
+    print(recs[["item_id", "title", "difficulty", "final_score", "recency_score"]].to_string(index=False))

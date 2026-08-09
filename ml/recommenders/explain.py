@@ -1,5 +1,3 @@
-import random
-
 def generate_explanation(
     content_score,
     collab_score,
@@ -8,6 +6,7 @@ def generate_explanation(
     user_difficulty=None,
     matched_skills=None,
     top_category=None,
+    recency_score=0,
 ):
     """
     Generate a human-readable explanation from actual scoring signals.
@@ -15,6 +14,10 @@ def generate_explanation(
     so explanations vary meaningfully between recommendations.
     """
     reasons = []
+
+    # Recency reasoning — highest priority signal, shown first when strong
+    if recency_score > 0.5:
+        reasons.append("Similar to what you interacted with most recently")
 
     # Content-based reasoning — reference actual matched skills when available
     if content_score > 0.5:
