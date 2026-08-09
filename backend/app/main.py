@@ -33,6 +33,8 @@ from backend.app.api.platform_stats import router as platform_router
 app.include_router(platform_router)
 from backend.app.api.saved_items import router as saved_items_router
 app.include_router(saved_items_router)
+from backend.app.api.preferences import router as preferences_router
+app.include_router(preferences_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
