@@ -18,6 +18,8 @@ def recommendations_for_user(user_id: int, top_n: int = 10):
             collab_score=row["collaborative_score"],
             popularity_score=row["popularity_score"],
             difficulty=row["difficulty"],
+            matched_skills=row.get("matched_skills"),
+            top_category=row.get("top_category"),
         )
         results.append({
             "item_id": int(row["item_id"]),
