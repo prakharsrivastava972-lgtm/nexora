@@ -1,3 +1,4 @@
+import Onboarding from "./pages/Onboarding";
 import SavedItems from "./pages/SavedItems";
 import PlatformStats from "./pages/PlatformStats";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -14,6 +15,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/saved" element={<SavedItems />} />
           <Route path="/platform-stats" element={<PlatformStats />} />
           <Route path="/" element={<Navigate to="/login" />} />

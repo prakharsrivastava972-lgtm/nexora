@@ -14,7 +14,17 @@ function Login() {
     try {
       const res = await api.post("/auth/login", { email, password });
       localStorage.setItem("nexora_token", res.data.access_token);
-      navigate("/dashboard");
+
+      try {
+        const prefsRes = await api.get("/preferences");
+        if (!prefsRes.data.has_onboarded) {
+          navigate("/onboarding");
+        } else {
+          navigate("/dashboard");
+        }
+      } catch {
+        navigate("/dashboard");
+      }
     } catch (err) {
       setError(err.response?.data?.detail || "Login failed");
     }
