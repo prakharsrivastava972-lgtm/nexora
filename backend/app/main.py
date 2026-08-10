@@ -39,6 +39,8 @@ from backend.app.api.explore import router as explore_router
 app.include_router(explore_router)
 from backend.app.api.roadmap import router as roadmap_router
 app.include_router(roadmap_router)
+from backend.app.api.youtube import router as youtube_router
+app.include_router(youtube_router)
 @app.get("/health")
 def health_check():
     return {"status": "ok", "service": "NEXORA API"}
