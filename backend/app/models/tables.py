@@ -70,3 +70,18 @@ class RoadmapTopic(Base):
     order_index = Column(Integer, nullable=False)
     completed = Column(Boolean, default=False)
     already_known = Column(Boolean, default=False)
+    
+class CourseRoadmap(Base):
+    __tablename__ = "course_roadmaps"
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    item_id = Column(Integer, ForeignKey("items.id"), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+class CourseTopic(Base):
+    __tablename__ = "course_topics"
+    id = Column(Integer, primary_key=True, index=True)
+    course_roadmap_id = Column(Integer, ForeignKey("course_roadmaps.id"), nullable=False)
+    name = Column(String, nullable=False)
+    order_index = Column(Integer, nullable=False)
+    completed = Column(Boolean, default=False)
