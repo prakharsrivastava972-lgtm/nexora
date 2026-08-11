@@ -2,6 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useTheme } from "../context/ThemeContext";
+import CoursesSidebar from "../components/CoursesSidebar";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function Dashboard() {
   const [roadmapSummary, setRoadmapSummary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(function () {
     api.get("/auth/me")
@@ -46,6 +48,7 @@ function Dashboard() {
           <button onClick={toggleTheme} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-1.5 rounded text-sm border border-slate-300 dark:border-slate-700">
             {theme === "dark" ? "Light mode" : "Dark mode"}
           </button>
+          <button onClick={function () { setSidebarOpen(true); }} className="text-indigo-600 dark:text-indigo-400 underline">My Courses</button>
           <Link to="/search" className="text-indigo-600 dark:text-indigo-400 underline">Search</Link>
           <Link to="/roadmap" className="text-indigo-600 dark:text-indigo-400 underline">Roadmap</Link>
           <Link to="/analytics" className="text-indigo-600 dark:text-indigo-400 underline">View Your Analytics</Link>
@@ -169,6 +172,8 @@ function Dashboard() {
           </div>
         </div>
       ) : null}
+
+      <CoursesSidebar open={sidebarOpen} onClose={function () { setSidebarOpen(false); }} />
     </div>
   );
 }

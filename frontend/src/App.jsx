@@ -10,7 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
 import Search from "./pages/Search";
 import ItemDetail from "./pages/ItemDetail";
-
+import MyCourses from "./pages/MyCourses";
 function App() {
   return (
     <ThemeProvider>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/search" element={<Search />} />
           <Route path="/items/:itemId" element={<ItemDetail />} />
+          <Route path="/my-courses" element={<MyCourses />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
