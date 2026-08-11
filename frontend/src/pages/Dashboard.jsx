@@ -1,8 +1,8 @@
 ﻿import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useTheme } from "../context/ThemeContext";
-import CoursesSidebar from "../components/CoursesSidebar";
+import NavSidebar from "../components/NavSidebar";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -14,11 +14,13 @@ function Dashboard() {
   const [roadmapSummary, setRoadmapSummary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(function () {
     api.get("/auth/me")
       .then(function (meRes) {
+        setUserName(meRes.data.name || "");
         return api.get("/recommendations/" + meRes.data.id);
       })
       .then(function (res) { setRecommendations(res.data); })
@@ -43,18 +45,24 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Your Personalized Learning Feed</h1>
-        <div className="flex gap-4 items-center flex-wrap">
-          <button onClick={toggleTheme} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-1.5 rounded text-sm border border-slate-300 dark:border-slate-700">
-            {theme === "dark" ? "Light mode" : "Dark mode"}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={function () { setNavOpen(true); }}
+            className="text-2xl leading-none text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg w-10 h-10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+            title="Menu"
+          >
+            ⋮
           </button>
-          <button onClick={function () { setSidebarOpen(true); }} className="text-indigo-600 dark:text-indigo-400 underline">My Courses</button>
-          <Link to="/search" className="text-indigo-600 dark:text-indigo-400 underline">Search</Link>
-          <Link to="/roadmap" className="text-indigo-600 dark:text-indigo-400 underline">Roadmap</Link>
-          <Link to="/analytics" className="text-indigo-600 dark:text-indigo-400 underline">View Your Analytics</Link>
-          <Link to="/saved" className="text-indigo-600 dark:text-indigo-400 underline">Saved</Link>
-          <Link to="/platform-stats" className="text-indigo-600 dark:text-indigo-400 underline">Platform Stats</Link>
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+              {userName ? "Hello, " + userName + " \uD83D\uDC4B" : "Hello \uD83D\uDC4B"}
+            </h1>
+            <p className="text-slate-500 dark:text-slate-400 text-sm">Welcome back to NEXORA. Here's your personalized feed.</p>
+          </div>
         </div>
+        <button onClick={toggleTheme} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-1.5 rounded text-sm border border-slate-300 dark:border-slate-700">
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
       </div>
 
       {loading ? <p className="text-slate-500 dark:text-slate-400">Loading recommendations...</p> : null}
@@ -173,7 +181,7 @@ function Dashboard() {
         </div>
       ) : null}
 
-      <CoursesSidebar open={sidebarOpen} onClose={function () { setSidebarOpen(false); }} />
+      <NavSidebar open={navOpen} onClose={function () { setNavOpen(false); }} />
     </div>
   );
 }
