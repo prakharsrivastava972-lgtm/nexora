@@ -1,6 +1,7 @@
 ﻿import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
+import nexoraLogo from "../assets/nexora-logo.png";
 
 function Register() {
   const [name, setName] = useState("");
@@ -21,14 +22,20 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 px-4">
-      <div className="w-full max-w-sm">
+    <div className="relative min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 px-4 overflow-hidden">
+      <img
+        src={nexoraLogo}
+        alt=""
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] max-w-none opacity-10 pointer-events-none select-none"
+      />
+
+      <div className="relative z-10 w-full max-w-sm">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">Join NEXORA</h1>
           <p className="text-slate-500 dark:text-slate-400 text-sm">Create your account and start your personalized learning journey.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-800 p-8 rounded-xl w-full shadow-lg dark:shadow-none">
+        <form onSubmit={handleSubmit} className="p-8 w-full">
           {error && <p className="text-red-500 dark:text-red-400 text-sm mb-4">{error}</p>}
           <input
             type="text"
