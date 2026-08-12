@@ -16,11 +16,22 @@ function ItemDetail() {
   const [topicVideos, setTopicVideos] = useState({});
   const [topicVideosLoading, setTopicVideosLoading] = useState({});
   const [expandedTopics, setExpandedTopics] = useState({});
+  const [savedUrls, setSavedUrls] = useState({});
 
   const loadCourseRoadmap = function () {
     api.get("/courses/" + itemId + "/roadmap")
       .then(function (res) { setCourseRoadmap(res.data); })
       .catch(function () { setCourseRoadmap(null); });
+  };
+
+  const loadSavedResources = function () {
+    api.get("/saved-resources")
+      .then(function (res) {
+        const map = {};
+        (res.data || []).forEach(function (r) { map[r.video_url] = r.id; });
+        setSavedUrls(map);
+      })
+      .catch(function () {});
   };
 
   useEffect(function () {
@@ -33,6 +44,7 @@ function ItemDetail() {
       .catch(function () { setResources([]); });
 
     loadCourseRoadmap();
+    loadSavedResources();
     setActiveTab("overview");
     setTopicVideos({});
     setExpandedTopics({});
@@ -113,6 +125,30 @@ function ItemDetail() {
       .finally(function () {
         setTopicVideosLoading(function (prev) { return { ...prev, [topicId]: false }; });
       });
+  };
+
+  const handleToggleSaveResource = async function (label, url, topicName) {
+    const existingId = savedUrls[url];
+    try {
+      if (existingId) {
+        await api.delete("/saved-resources/" + existingId);
+        setSavedUrls(function (prev) {
+          const next = { ...prev };
+          delete next[url];
+          return next;
+        });
+      } else {
+        const res = await api.post("/saved-resources", {
+          item_id: Number(itemId),
+          topic_name: topicName || null,
+          video_label: label,
+          video_url: url,
+        });
+        setSavedUrls(function (prev) { return { ...prev, [url]: res.data.id }; });
+      }
+    } catch (err) {
+      alert("Failed to update saved resource. Are you logged in?");
+    }
   };
 
   if (error) {
@@ -270,11 +306,23 @@ function ItemDetail() {
                                 <p className="text-xs text-slate-400 dark:text-slate-500 italic">Loading videos...</p>
                               ) : videos && videos.length > 0 ? (
                                 videos.map(function (v, i) {
+                                  const isSaved = !!savedUrls[v.url];
                                   return (
-                                    <a key={i} href={v.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 rounded px-3 py-1.5 text-xs">
-                                      <span className="text-slate-700 dark:text-slate-200">{v.label}</span>
-                                      <span className="text-red-500 dark:text-red-400">Search YouTube</span>
-                                    </a>
+                                    <div key={i} className="flex items-center justify-between bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 rounded px-3 py-1.5 text-xs gap-2">
+                                      <a href={v.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-0 truncate">
+                                        <span className="text-slate-700 dark:text-slate-200">{v.label}</span>
+                                      </a>
+                                      <button
+                                        onClick={function () { handleToggleSaveResource(v.label, v.url, t.name); }}
+                                        className={isSaved ? "text-amber-500" : "text-slate-300 dark:text-slate-500 hover:text-amber-500"}
+                                        title={isSaved ? "Unsave" : "Save"}
+                                      >
+                                        {isSaved ? "★" : "☆"}
+                                      </button>
+                                      <a href={v.url} target="_blank" rel="noopener noreferrer" className="text-red-500 dark:text-red-400 whitespace-nowrap">
+                                        Search YouTube
+                                      </a>
+                                    </div>
                                   );
                                 })
                               ) : (
@@ -317,11 +365,23 @@ function ItemDetail() {
               {youtubeResources.length > 0 ? (
                 <div className="space-y-2">
                   {youtubeResources.map(function (r, i) {
+                    const isSaved = !!savedUrls[r.url];
                     return (
-                      <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded px-4 py-2 text-sm">
-                        <span className="text-slate-900 dark:text-white">{r.label}</span>
-                        <span className="text-red-600 dark:text-red-400 text-xs">Search YouTube</span>
-                      </a>
+                      <div key={i} className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded px-4 py-2 text-sm gap-3">
+                        <a href={r.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-0 truncate">
+                          <span className="text-slate-900 dark:text-white">{r.label}</span>
+                        </a>
+                        <button
+                          onClick={function () { handleToggleSaveResource(r.label, r.url, null); }}
+                          className={isSaved ? "text-amber-500 text-lg" : "text-slate-300 dark:text-slate-500 hover:text-amber-500 text-lg"}
+                          title={isSaved ? "Unsave" : "Save"}
+                        >
+                          {isSaved ? "★" : "☆"}
+                        </button>
+                        <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-red-600 dark:text-red-400 text-xs whitespace-nowrap">
+                          Search YouTube
+                        </a>
+                      </div>
                     );
                   })}
                 </div>

@@ -49,3 +49,6 @@ app.include_router(course_roadmap_router)
 
 from backend.app.api.recently_viewed import router as recently_viewed_router
 app.include_router(recently_viewed_router)
+
+from backend.app.api.saved_resources import router as saved_resources_router
+app.include_router(saved_resources_router)

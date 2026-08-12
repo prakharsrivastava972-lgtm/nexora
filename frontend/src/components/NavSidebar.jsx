@@ -43,6 +43,7 @@ function NavSidebar({ open, onClose }) {
     { label: "My Courses", icon: "📚", path: "/my-courses" },
     { label: "Learning Roadmap", icon: "🗺️", path: "/roadmap" },
     { label: "Saved Items", icon: "⭐", path: "/saved" },
+    { label: "Saved Resources", icon: "🔖", path: "/saved-resources" },
     { label: "Analytics", icon: "📊", path: "/analytics" },
     { label: "Platform Stats", icon: "📈", path: "/platform-stats" },
   ];

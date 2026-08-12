@@ -1,3 +1,4 @@
+﻿import SavedResources from "./pages/SavedResources";
 import Roadmap from "./pages/Roadmap";
 import Onboarding from "./pages/Onboarding";
 import SavedItems from "./pages/SavedItems";
@@ -16,6 +17,7 @@ function App() {
     <ThemeProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/saved-resources" element={<SavedResources />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/saved" element={<SavedItems />} />
