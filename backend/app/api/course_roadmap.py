@@ -83,6 +83,21 @@ def toggle_course_topic(topic_id: int, user_id: int = Depends(get_current_user_i
     db.commit()
     return {"topic_id": topic_id, "completed": topic.completed}
 
+@router.put("/courses/{item_id}/reset")
+def reset_course_roadmap(item_id: int, user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
+    roadmap = db.query(CourseRoadmap).filter(
+        CourseRoadmap.user_id == user_id, CourseRoadmap.item_id == item_id
+    ).first()
+    if not roadmap:
+        raise HTTPException(status_code=404, detail="No roadmap found for this course")
+
+    topics = db.query(CourseTopic).filter(CourseTopic.course_roadmap_id == roadmap.id).all()
+    for t in topics:
+        t.completed = False
+    db.commit()
+
+    return {"course_roadmap_id": roadmap.id, "status": "reset", "progress": 0}
+
 @router.get("/my-courses")
 def get_my_courses(user_id: int = Depends(get_current_user_id), db: Session = Depends(get_db)):
     roadmaps = db.query(CourseRoadmap).filter(CourseRoadmap.user_id == user_id).all()
@@ -102,3 +117,4 @@ def get_my_courses(user_id: int = Depends(get_current_user_id), db: Session = De
             "progress": progress,
         })
     return out
+

@@ -13,6 +13,9 @@ function ItemDetail() {
   const [error, setError] = useState("");
   const [activeTab, setActiveTab] = useState("overview");
   const [showCompletion, setShowCompletion] = useState(false);
+  const [topicVideos, setTopicVideos] = useState({});
+  const [topicVideosLoading, setTopicVideosLoading] = useState({});
+  const [expandedTopics, setExpandedTopics] = useState({});
 
   const loadCourseRoadmap = function () {
     api.get("/courses/" + itemId + "/roadmap")
@@ -31,6 +34,8 @@ function ItemDetail() {
 
     loadCourseRoadmap();
     setActiveTab("overview");
+    setTopicVideos({});
+    setExpandedTopics({});
 
     api.post("/interactions", { item_id: Number(itemId), event_type: "view" }).catch(function () {});
   }, [itemId]);
@@ -74,6 +79,42 @@ function ItemDetail() {
     }
   };
 
+  const handleResetRoadmap = async function () {
+    const confirmed = window.confirm("This will uncheck all topics in this course's roadmap and reset progress to 0%. Your roadmap itself won't be deleted. Continue?");
+    if (!confirmed) return;
+    try {
+      await api.put("/courses/" + itemId + "/reset");
+      loadCourseRoadmap();
+    } catch (err) {
+      alert("Failed to reset roadmap.");
+    }
+  };
+
+  const handleToggleTopicVideos = function (topicId, topicName) {
+    const isExpanded = expandedTopics[topicId];
+
+    if (isExpanded) {
+      setExpandedTopics(function (prev) { return { ...prev, [topicId]: false }; });
+      return;
+    }
+
+    setExpandedTopics(function (prev) { return { ...prev, [topicId]: true }; });
+
+    if (topicVideos[topicId]) return;
+
+    setTopicVideosLoading(function (prev) { return { ...prev, [topicId]: true }; });
+    api.get("/youtube/search", { params: { q: topicName, level: item.difficulty || "Beginner" } })
+      .then(function (res) {
+        setTopicVideos(function (prev) { return { ...prev, [topicId]: res.data.resources || [] }; });
+      })
+      .catch(function () {
+        setTopicVideos(function (prev) { return { ...prev, [topicId]: [] }; });
+      })
+      .finally(function () {
+        setTopicVideosLoading(function (prev) { return { ...prev, [topicId]: false }; });
+      });
+  };
+
   if (error) {
     return <div className="max-w-3xl mx-auto p-8 text-red-500">{error}</div>;
   }
@@ -88,6 +129,7 @@ function ItemDetail() {
 
   const roadmapStarted = courseRoadmap && courseRoadmap.has_roadmap;
   const roadmapFullyComplete = roadmapStarted && courseRoadmap.progress === 100;
+  const roadmapHasProgress = roadmapStarted && courseRoadmap.progress > 0;
   const topicsCompletedCount = roadmapStarted ? courseRoadmap.topics.filter(function (t) { return t.completed; }).length : 0;
   const totalTopicsCount = roadmapStarted ? courseRoadmap.topics.length : 0;
 
@@ -182,8 +224,15 @@ function ItemDetail() {
                 </div>
               ) : (
                 <div>
-                  <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2 mb-2">
-                    <div className="bg-indigo-600 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-2 mr-4">
+                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
+                    </div>
+                    {roadmapHasProgress ? (
+                      <button onClick={handleResetRoadmap} className="text-xs text-slate-500 dark:text-slate-400 hover:text-red-500 dark:hover:text-red-400 whitespace-nowrap underline">
+                        Start From Beginning
+                      </button>
+                    ) : null}
                   </div>
                   <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
                     {courseRoadmap.progress}% complete
@@ -191,18 +240,49 @@ function ItemDetail() {
                   </p>
                   <div className="space-y-2">
                     {courseRoadmap.topics.map(function (t) {
+                      const isExpanded = expandedTopics[t.id];
+                      const videos = topicVideos[t.id];
+                      const isLoading = topicVideosLoading[t.id];
                       return (
-                        <label key={t.id} className="flex items-center gap-3 cursor-pointer bg-slate-50 dark:bg-slate-700/50 rounded px-3 py-2">
-                          <input
-                            type="checkbox"
-                            checked={t.completed}
-                            onChange={function () { handleToggleTopic(t.id); }}
-                            className="w-4 h-4"
-                          />
-                          <span className={t.completed ? "text-slate-400 dark:text-slate-500 line-through text-sm" : "text-slate-900 dark:text-white text-sm"}>
-                            {t.name}
-                          </span>
-                        </label>
+                        <div key={t.id} className="bg-slate-50 dark:bg-slate-700/50 rounded overflow-hidden">
+                          <div className="flex items-center gap-3 px-3 py-2">
+                            <label className="flex items-center gap-3 cursor-pointer flex-1">
+                              <input
+                                type="checkbox"
+                                checked={t.completed}
+                                onChange={function () { handleToggleTopic(t.id); }}
+                                className="w-4 h-4"
+                              />
+                              <span className={t.completed ? "text-slate-400 dark:text-slate-500 line-through text-sm" : "text-slate-900 dark:text-white text-sm"}>
+                                {t.name}
+                              </span>
+                            </label>
+                            <button
+                              onClick={function () { handleToggleTopicVideos(t.id, t.name); }}
+                              className="text-xs text-red-500 dark:text-red-400 hover:underline whitespace-nowrap"
+                            >
+                              📺 Videos
+                            </button>
+                          </div>
+                          {isExpanded ? (
+                            <div className="px-3 pb-3 space-y-1">
+                              {isLoading ? (
+                                <p className="text-xs text-slate-400 dark:text-slate-500 italic">Loading videos...</p>
+                              ) : videos && videos.length > 0 ? (
+                                videos.map(function (v, i) {
+                                  return (
+                                    <a key={i} href={v.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 rounded px-3 py-1.5 text-xs">
+                                      <span className="text-slate-700 dark:text-slate-200">{v.label}</span>
+                                      <span className="text-red-500 dark:text-red-400">Search YouTube</span>
+                                    </a>
+                                  );
+                                })
+                              ) : (
+                                <p className="text-xs text-slate-400 dark:text-slate-500 italic">No videos found.</p>
+                              )}
+                            </div>
+                          ) : null}
+                        </div>
                       );
                     })}
                   </div>
