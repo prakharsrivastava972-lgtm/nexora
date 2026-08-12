@@ -5,10 +5,14 @@ import api from "../services/api";
 function NavSidebar({ open, onClose }) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
+  const [continueLearning, setContinueLearning] = useState([]);
 
   useEffect(function () {
     if (!open) return;
     api.get("/auth/me").then(function (res) { setUser(res.data); }).catch(function () {});
+    api.get("/recently-viewed").then(function (res) { setRecentlyViewed(res.data || []); }).catch(function () {});
+    api.get("/continue-learning").then(function (res) { setContinueLearning(res.data || []); }).catch(function () {});
   }, [open]);
 
   useEffect(function () {
@@ -45,10 +49,6 @@ function NavSidebar({ open, onClose }) {
 
   return (
     <>
-      <button
-        onClick={onClose ? function () {} : function () {}}
-        style={{ display: "none" }}
-      />
       {open ? (
         <div className="fixed inset-0 z-50 flex">
           <div className="w-72 bg-white dark:bg-slate-800 h-full shadow-xl flex flex-col">
@@ -70,6 +70,44 @@ function NavSidebar({ open, onClose }) {
                   </button>
                 );
               })}
+
+              {continueLearning.length > 0 ? (
+                <div className="mt-4 px-5">
+                  <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-2">Continue Learning</p>
+                  <div className="space-y-1">
+                    {continueLearning.slice(0, 4).map(function (item) {
+                      return (
+                        <button
+                          key={item.item_id}
+                          onClick={function () { go("/items/" + item.item_id); }}
+                          className="w-full text-left text-sm text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-1.5 truncate block"
+                        >
+                          {item.title}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
+
+              {recentlyViewed.length > 0 ? (
+                <div className="mt-4 px-5">
+                  <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase mb-2">Recently Viewed</p>
+                  <div className="space-y-1">
+                    {recentlyViewed.slice(0, 4).map(function (item) {
+                      return (
+                        <button
+                          key={item.item_id}
+                          onClick={function () { go("/items/" + item.item_id); }}
+                          className="w-full text-left text-sm text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 py-1.5 truncate block"
+                        >
+                          {item.title}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
             </nav>
 
             <div className="border-t border-slate-100 dark:border-slate-700 p-4">

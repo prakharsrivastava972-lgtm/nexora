@@ -9,7 +9,6 @@ function Dashboard() {
   const { theme, toggleTheme } = useTheme();
   const [recommendations, setRecommendations] = useState([]);
   const [trending, setTrending] = useState([]);
-  const [continueLearning, setContinueLearning] = useState([]);
   const [explore, setExplore] = useState([]);
   const [roadmapSummary, setRoadmapSummary] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -28,7 +27,6 @@ function Dashboard() {
       .finally(function () { setLoading(false); });
 
     api.get("/trending").then(function (res) { setTrending(res.data); }).catch(function () {});
-    api.get("/continue-learning").then(function (res) { setContinueLearning(res.data); }).catch(function () {});
     api.get("/explore").then(function (res) { setExplore(res.data); }).catch(function () {});
     api.get("/roadmap").then(function (res) { setRoadmapSummary(res.data); }).catch(function () {});
   }, []);
@@ -89,25 +87,6 @@ function Dashboard() {
           <p className="text-slate-500 dark:text-slate-400 text-sm">Get a personalized, structured path toward your career goal.</p>
         </div>
       )}
-
-      {continueLearning.length > 0 ? (
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Continue Learning</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {continueLearning.map(function (item) {
-              return (
-                <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors border-l-4 border-emerald-500 shadow-sm dark:shadow-none">
-                  <h3 className="text-slate-900 dark:text-white font-semibold text-lg mb-2">{item.title}</h3>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-500 dark:text-slate-400 text-sm">{item.difficulty}</span>
-                    {item.rating ? <span className="text-amber-500 dark:text-amber-400 text-sm">Rating: {item.rating}</span> : null}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map(function (item) {

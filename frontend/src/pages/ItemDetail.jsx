@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../services/api";
+import CompletionModal from "../components/CompletionModal";
 
 function ItemDetail() {
   const { itemId } = useParams();
@@ -10,6 +11,8 @@ function ItemDetail() {
   const [youtubeResources, setYoutubeResources] = useState([]);
   const [courseRoadmap, setCourseRoadmap] = useState(null);
   const [error, setError] = useState("");
+  const [activeTab, setActiveTab] = useState("overview");
+  const [showCompletion, setShowCompletion] = useState(false);
 
   const loadCourseRoadmap = function () {
     api.get("/courses/" + itemId + "/roadmap")
@@ -27,6 +30,9 @@ function ItemDetail() {
       .catch(function () { setResources([]); });
 
     loadCourseRoadmap();
+    setActiveTab("overview");
+
+    api.post("/interactions", { item_id: Number(itemId), event_type: "view" }).catch(function () {});
   }, [itemId]);
 
   useEffect(function () {
@@ -40,7 +46,11 @@ function ItemDetail() {
   const handleInteract = async function (eventType) {
     try {
       await api.post("/interactions", { item_id: Number(itemId), event_type: eventType });
-      alert("Recorded: " + eventType);
+      if (eventType === "complete") {
+        setShowCompletion(true);
+      } else {
+        alert("Recorded: " + eventType);
+      }
     } catch (err) {
       alert("Failed to record interaction. Are you logged in?");
     }
@@ -78,6 +88,21 @@ function ItemDetail() {
 
   const roadmapStarted = courseRoadmap && courseRoadmap.has_roadmap;
   const roadmapFullyComplete = roadmapStarted && courseRoadmap.progress === 100;
+  const topicsCompletedCount = roadmapStarted ? courseRoadmap.topics.filter(function (t) { return t.completed; }).length : 0;
+  const totalTopicsCount = roadmapStarted ? courseRoadmap.topics.length : 0;
+
+  const tabs = [
+    { id: "overview", label: "Overview" },
+    { id: "roadmap", label: "Roadmap" },
+    { id: "resources", label: "Resources" },
+    { id: "youtube", label: "YouTube" },
+  ];
+
+  const tabButtonClass = function (id) {
+    return activeTab === id
+      ? "px-4 py-2 text-sm font-medium rounded-lg bg-indigo-600 text-white"
+      : "px-4 py-2 text-sm font-medium rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700";
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-8 px-4">
@@ -105,105 +130,128 @@ function ItemDetail() {
                 {item.category}
               </span>
             ) : null}
+            {roadmapStarted ? (
+              <span className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
+                {courseRoadmap.progress}% complete
+              </span>
+            ) : null}
           </div>
 
-          <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Overview</h2>
-          <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">{item.description}</p>
+          <div className="flex gap-2 mb-6 border-b border-slate-100 dark:border-slate-700 pb-3">
+            {tabs.map(function (t) {
+              return (
+                <button key={t.id} onClick={function () { setActiveTab(t.id); }} className={tabButtonClass(t.id)}>
+                  {t.label}
+                </button>
+              );
+            })}
+          </div>
 
-          {skillsList.length > 0 ? (
-            <div className="mb-6">
-              <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Skills Covered</h2>
-              <div className="flex flex-wrap gap-2">
-                {skillsList.map(function (skill, i) {
-                  return (
-                    <span key={i} className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
-                      {skill}
-                    </span>
-                  );
-                })}
-              </div>
+          {activeTab === "overview" ? (
+            <div>
+              <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Overview</h2>
+              <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">{item.description}</p>
+
+              {skillsList.length > 0 ? (
+                <div className="mb-2">
+                  <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Skills Covered</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {skillsList.map(function (skill, i) {
+                      return (
+                        <span key={i} className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
+                          {skill}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              ) : null}
             </div>
           ) : null}
 
-          <div className="mb-6 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-5">
-            <h2 className="text-slate-900 dark:text-white font-semibold mb-3">Course Roadmap</h2>
-
-            {!roadmapStarted ? (
-              <div>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
-                  Track your progress through this course with a personal checklist. You'll only be able to mark this course complete once every item below is checked off.
-                </p>
-                <button onClick={handleStartRoadmap} className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm font-medium">
-                  Start Roadmap
-                </button>
-              </div>
-            ) : (
-              <div>
-                <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2 mb-2">
-                  <div className="bg-indigo-600 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
+          {activeTab === "roadmap" ? (
+            <div>
+              {!roadmapStarted ? (
+                <div>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                    Track your progress through this course with a personal checklist. You'll only be able to mark this course complete once every item below is checked off.
+                  </p>
+                  <button onClick={handleStartRoadmap} className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm font-medium">
+                    Start Roadmap
+                  </button>
                 </div>
-                <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
-                  {courseRoadmap.progress}% complete
-                  {roadmapFullyComplete ? " — all topics done, you can mark this course complete below" : ""}
-                </p>
+              ) : (
+                <div>
+                  <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2 mb-2">
+                    <div className="bg-indigo-600 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
+                  </div>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                    {courseRoadmap.progress}% complete
+                    {roadmapFullyComplete ? " — all topics done, you can mark this course complete below" : ""}
+                  </p>
+                  <div className="space-y-2">
+                    {courseRoadmap.topics.map(function (t) {
+                      return (
+                        <label key={t.id} className="flex items-center gap-3 cursor-pointer bg-slate-50 dark:bg-slate-700/50 rounded px-3 py-2">
+                          <input
+                            type="checkbox"
+                            checked={t.completed}
+                            onChange={function () { handleToggleTopic(t.id); }}
+                            className="w-4 h-4"
+                          />
+                          <span className={t.completed ? "text-slate-400 dark:text-slate-500 line-through text-sm" : "text-slate-900 dark:text-white text-sm"}>
+                            {t.name}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : null}
+
+          {activeTab === "resources" ? (
+            <div>
+              {resources.length > 0 ? (
                 <div className="space-y-2">
-                  {courseRoadmap.topics.map(function (t) {
+                  {resources.map(function (r, i) {
                     return (
-                      <label key={t.id} className="flex items-center gap-3 cursor-pointer bg-white dark:bg-slate-800 rounded px-3 py-2">
-                        <input
-                          type="checkbox"
-                          checked={t.completed}
-                          onChange={function () { handleToggleTopic(t.id); }}
-                          className="w-4 h-4"
-                        />
-                        <span className={t.completed ? "text-slate-400 dark:text-slate-500 line-through text-sm" : "text-slate-900 dark:text-white text-sm"}>
-                          {t.name}
-                        </span>
-                      </label>
+                      <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded px-4 py-2 text-sm">
+                        <span className="text-slate-900 dark:text-white">{r.title}</span>
+                        <span className="text-indigo-600 dark:text-indigo-400 text-xs">{r.type}</span>
+                      </a>
                     );
                   })}
                 </div>
-              </div>
-            )}
-          </div>
-
-          {resources.length > 0 ? (
-            <div className="mb-6">
-              <h2 className="text-slate-900 dark:text-white font-semibold mb-2">Learning Resources</h2>
-              <div className="space-y-2">
-                {resources.map(function (r, i) {
-                  return (
-                    <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded px-4 py-2 text-sm">
-                      <span className="text-slate-900 dark:text-white">{r.title}</span>
-                      <span className="text-indigo-600 dark:text-indigo-400 text-xs">{r.type}</span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          ) : (
-            <p className="text-slate-400 dark:text-slate-500 text-sm mb-6 italic">
-              Curated resources coming soon for this course.
-            </p>
-          )}
-
-          {youtubeResources.length > 0 ? (
-            <div className="mb-6">
-              <h2 className="text-slate-900 dark:text-white font-semibold mb-2">YouTube Videos</h2>
-              <div className="space-y-2">
-                {youtubeResources.map(function (r, i) {
-                  return (
-                    <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded px-4 py-2 text-sm">
-                      <span className="text-slate-900 dark:text-white">{r.label}</span>
-                      <span className="text-red-600 dark:text-red-400 text-xs">Search YouTube</span>
-                    </a>
-                  );
-                })}
-              </div>
+              ) : (
+                <p className="text-slate-400 dark:text-slate-500 text-sm italic">
+                  Curated resources coming soon for this course.
+                </p>
+              )}
             </div>
           ) : null}
 
-          <div className="flex gap-3 mt-8">
+          {activeTab === "youtube" ? (
+            <div>
+              {youtubeResources.length > 0 ? (
+                <div className="space-y-2">
+                  {youtubeResources.map(function (r, i) {
+                    return (
+                      <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded px-4 py-2 text-sm">
+                        <span className="text-slate-900 dark:text-white">{r.label}</span>
+                        <span className="text-red-600 dark:text-red-400 text-xs">Search YouTube</span>
+                      </a>
+                    );
+                  })}
+                </div>
+              ) : (
+                <p className="text-slate-400 dark:text-slate-500 text-sm italic">Loading video suggestions...</p>
+              )}
+            </div>
+          ) : null}
+
+          <div className="flex gap-3 mt-8 pt-6 border-t border-slate-100 dark:border-slate-700">
             <button onClick={function () { handleInteract("like"); }} className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded font-medium">
               Like
             </button>
@@ -223,6 +271,15 @@ function ItemDetail() {
           </div>
         </div>
       </div>
+
+      <CompletionModal
+        open={showCompletion}
+        onClose={function () { setShowCompletion(false); }}
+        courseTitle={item.title}
+        topicsCompleted={topicsCompletedCount}
+        totalTopics={totalTopicsCount}
+        skills={skillsList}
+      />
     </div>
   );
 }

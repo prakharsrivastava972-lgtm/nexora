@@ -46,3 +46,6 @@ def health_check():
     return {"status": "ok", "service": "NEXORA API"}
 from backend.app.api.course_roadmap import router as course_roadmap_router
 app.include_router(course_roadmap_router)
+
+from backend.app.api.recently_viewed import router as recently_viewed_router
+app.include_router(recently_viewed_router)
