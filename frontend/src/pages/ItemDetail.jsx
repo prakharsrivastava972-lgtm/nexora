@@ -17,6 +17,8 @@ function ItemDetail() {
   const [topicVideosLoading, setTopicVideosLoading] = useState({});
   const [expandedTopics, setExpandedTopics] = useState({});
   const [savedUrls, setSavedUrls] = useState({});
+  const [myCourses, setMyCourses] = useState([]);
+  const [switcherOpen, setSwitcherOpen] = useState(false);
 
   const loadCourseRoadmap = function () {
     api.get("/courses/" + itemId + "/roadmap")
@@ -43,11 +45,16 @@ function ItemDetail() {
       .then(function (res) { setResources(res.data.resources || []); })
       .catch(function () { setResources([]); });
 
+    api.get("/my-courses")
+      .then(function (res) { setMyCourses(res.data || []); })
+      .catch(function () { setMyCourses([]); });
+
     loadCourseRoadmap();
     loadSavedResources();
     setActiveTab("overview");
     setTopicVideos({});
     setExpandedTopics({});
+    setSwitcherOpen(false);
 
     api.post("/interactions", { item_id: Number(itemId), event_type: "view" }).catch(function () {});
   }, [itemId]);
@@ -168,6 +175,7 @@ function ItemDetail() {
   const roadmapHasProgress = roadmapStarted && courseRoadmap.progress > 0;
   const topicsCompletedCount = roadmapStarted ? courseRoadmap.topics.filter(function (t) { return t.completed; }).length : 0;
   const totalTopicsCount = roadmapStarted ? courseRoadmap.topics.length : 0;
+  const otherCourses = myCourses.filter(function (c) { return c.item_id !== Number(itemId); });
 
   const tabs = [
     { id: "overview", label: "Overview" },
@@ -190,13 +198,41 @@ function ItemDetail() {
         </button>
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm dark:shadow-none">
-          <div className="flex justify-between items-start mb-4">
+          <div className="flex justify-between items-start mb-4 gap-4">
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">{item.title}</h1>
-            {item.rating ? (
-              <span className="text-amber-500 dark:text-amber-400 font-medium whitespace-nowrap ml-4">
-                Rating: {item.rating}
-              </span>
-            ) : null}
+            <div className="flex items-center gap-3 flex-shrink-0">
+              {otherCourses.length > 0 ? (
+                <div className="relative">
+                  <button
+                    onClick={function () { setSwitcherOpen(!switcherOpen); }}
+                    className="text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 px-3 py-1.5 rounded-lg whitespace-nowrap"
+                  >
+                    Switch Course ▾
+                  </button>
+                  {switcherOpen ? (
+                    <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg z-10 max-h-72 overflow-y-auto">
+                      {otherCourses.map(function (c) {
+                        return (
+                          <button
+                            key={c.item_id}
+                            onClick={function () { navigate("/items/" + c.item_id); }}
+                            className="w-full text-left px-4 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-700 text-sm text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0"
+                          >
+                            <p className="truncate font-medium">{c.title}</p>
+                            <p className="text-xs text-slate-400 dark:text-slate-500">{c.progress}% complete</p>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+              {item.rating ? (
+                <span className="text-amber-500 dark:text-amber-400 font-medium whitespace-nowrap">
+                  Rating: {item.rating}
+                </span>
+              ) : null}
+            </div>
           </div>
 
           <div className="flex gap-3 mb-6">
