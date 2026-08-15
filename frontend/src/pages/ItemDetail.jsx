@@ -186,26 +186,26 @@ function ItemDetail() {
 
   const tabButtonClass = function (id) {
     return activeTab === id
-      ? "px-4 py-2 text-sm font-medium rounded-lg bg-indigo-600 text-white"
-      : "px-4 py-2 text-sm font-medium rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700";
+      ? "px-4 py-2 text-sm font-medium rounded-lg bg-amber-500 text-[#12172B] transition-all duration-200"
+      : "px-4 py-2 text-sm font-medium rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-200";
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-8 px-4">
+    <div className="min-h-screen page-enter bg-[#FAF9F6] dark:bg-slate-950 py-8 px-4">
       <div className="max-w-3xl mx-auto">
-        <button onClick={function () { navigate(-1); }} className="text-indigo-600 dark:text-indigo-400 mb-6 inline-block">
+        <button onClick={function () { navigate(-1); }} className="text-[#12172B] dark:text-amber-400 font-medium mb-6 inline-block hover:underline">
           Back
         </button>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm dark:shadow-none">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm dark:shadow-none border border-slate-100 dark:border-slate-700">
           <div className="flex justify-between items-start mb-4 gap-4">
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">{item.title}</h1>
+            <h1 className="font-serif text-3xl font-semibold text-slate-900 dark:text-white">{item.title}</h1>
             <div className="flex items-center gap-3 flex-shrink-0">
               {otherCourses.length > 0 ? (
                 <div className="relative">
                   <button
                     onClick={function () { setSwitcherOpen(!switcherOpen); }}
-                    className="text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 px-3 py-1.5 rounded-lg whitespace-nowrap"
+                    className="text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 px-3 py-1.5 rounded-lg whitespace-nowrap transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]"
                   >
                     Switch Course ▾
                   </button>
@@ -216,7 +216,7 @@ function ItemDetail() {
                           <button
                             key={c.item_id}
                             onClick={function () { navigate("/items/" + c.item_id); }}
-                            className="w-full text-left px-4 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-700 text-sm text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0"
+                            className="w-full text-left px-4 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-700 text-sm text-slate-700 dark:text-slate-200 border-b border-slate-50 dark:border-slate-700 last:border-0 transition-colors"
                           >
                             <p className="truncate font-medium">{c.title}</p>
                             <p className="text-xs text-slate-400 dark:text-slate-500">{c.progress}% complete</p>
@@ -245,7 +245,7 @@ function ItemDetail() {
               </span>
             ) : null}
             {roadmapStarted ? (
-              <span className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
+              <span className="bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-sm px-3 py-1 rounded-full">
                 {courseRoadmap.progress}% complete
               </span>
             ) : null}
@@ -272,7 +272,7 @@ function ItemDetail() {
                   <div className="flex flex-wrap gap-2">
                     {skillsList.map(function (skill, i) {
                       return (
-                        <span key={i} className="bg-indigo-100 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">
+                        <span key={i} className="bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-sm px-3 py-1 rounded-full">
                           {skill}
                         </span>
                       );
@@ -290,7 +290,7 @@ function ItemDetail() {
                   <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">
                     Track your progress through this course with a personal checklist. You'll only be able to mark this course complete once every item below is checked off.
                   </p>
-                  <button onClick={handleStartRoadmap} className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm font-medium">
+                  <button onClick={handleStartRoadmap} className="bg-amber-500 hover:bg-amber-400 text-[#12172B] px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]">
                     Start Roadmap
                   </button>
                 </div>
@@ -298,7 +298,7 @@ function ItemDetail() {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-2 mr-4">
-                      <div className="bg-indigo-600 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
+                      <div className="bg-amber-500 h-2 rounded-full" style={{ width: courseRoadmap.progress + "%" }} />
                     </div>
                     {roadmapHasProgress ? (
                       <button onClick={handleResetRoadmap} className="text-xs text-slate-500 dark:text-slate-400 hover:text-red-500 dark:hover:text-red-400 whitespace-nowrap underline">
@@ -316,14 +316,14 @@ function ItemDetail() {
                       const videos = topicVideos[t.id];
                       const isLoading = topicVideosLoading[t.id];
                       return (
-                        <div key={t.id} className="bg-slate-50 dark:bg-slate-700/50 rounded overflow-hidden">
+                        <div key={t.id} className="bg-slate-50 dark:bg-slate-700/50 rounded-lg overflow-hidden">
                           <div className="flex items-center gap-3 px-3 py-2">
                             <label className="flex items-center gap-3 cursor-pointer flex-1">
                               <input
                                 type="checkbox"
                                 checked={t.completed}
                                 onChange={function () { handleToggleTopic(t.id); }}
-                                className="w-4 h-4"
+                                className="w-4 h-4 accent-amber-500"
                               />
                               <span className={t.completed ? "text-slate-400 dark:text-slate-500 line-through text-sm" : "text-slate-900 dark:text-white text-sm"}>
                                 {t.name}
@@ -344,13 +344,13 @@ function ItemDetail() {
                                 videos.map(function (v, i) {
                                   const isSaved = !!savedUrls[v.url];
                                   return (
-                                    <div key={i} className="flex items-center justify-between bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 rounded px-3 py-1.5 text-xs gap-2">
+                                    <div key={i} className="flex items-center justify-between bg-white dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-900/20 rounded px-3 py-1.5 text-xs gap-2 transition-colors">
                                       <a href={v.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-0 truncate">
                                         <span className="text-slate-700 dark:text-slate-200">{v.label}</span>
                                       </a>
                                       <button
                                         onClick={function () { handleToggleSaveResource(v.label, v.url, t.name); }}
-                                        className={isSaved ? "text-amber-500" : "text-slate-300 dark:text-slate-500 hover:text-amber-500"}
+                                        className={isSaved ? "text-amber-500 transition-transform hover:scale-125" : "text-slate-300 dark:text-slate-500 hover:text-amber-500 transition-transform hover:scale-125"}
                                         title={isSaved ? "Unsave" : "Save"}
                                       >
                                         {isSaved ? "★" : "☆"}
@@ -381,9 +381,9 @@ function ItemDetail() {
                 <div className="space-y-2">
                   {resources.map(function (r, i) {
                     return (
-                      <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded px-4 py-2 text-sm">
+                      <a key={i} href={r.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg px-4 py-2 text-sm transition-colors">
                         <span className="text-slate-900 dark:text-white">{r.title}</span>
-                        <span className="text-indigo-600 dark:text-indigo-400 text-xs">{r.type}</span>
+                        <span className="text-amber-600 dark:text-amber-400 text-xs">{r.type}</span>
                       </a>
                     );
                   })}
@@ -403,13 +403,13 @@ function ItemDetail() {
                   {youtubeResources.map(function (r, i) {
                     const isSaved = !!savedUrls[r.url];
                     return (
-                      <div key={i} className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded px-4 py-2 text-sm gap-3">
+                      <div key={i} className="flex items-center justify-between bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg px-4 py-2 text-sm gap-3 transition-colors">
                         <a href={r.url} target="_blank" rel="noopener noreferrer" className="flex-1 min-w-0 truncate">
                           <span className="text-slate-900 dark:text-white">{r.label}</span>
                         </a>
                         <button
                           onClick={function () { handleToggleSaveResource(r.label, r.url, null); }}
-                          className={isSaved ? "text-amber-500 text-lg" : "text-slate-300 dark:text-slate-500 hover:text-amber-500 text-lg"}
+                          className={isSaved ? "text-amber-500 text-lg transition-transform hover:scale-125" : "text-slate-300 dark:text-slate-500 hover:text-amber-500 text-lg transition-transform hover:scale-125"}
                           title={isSaved ? "Unsave" : "Save"}
                         >
                           {isSaved ? "★" : "☆"}
@@ -428,10 +428,10 @@ function ItemDetail() {
           ) : null}
 
           <div className="flex gap-3 mt-8 pt-6 border-t border-slate-100 dark:border-slate-700">
-            <button onClick={function () { handleInteract("like"); }} className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded font-medium">
+            <button onClick={function () { handleInteract("like"); }} className="flex-1 bg-amber-500 hover:bg-amber-400 text-[#12172B] py-3 rounded-lg font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
               Like
             </button>
-            <button onClick={function () { handleInteract("save"); }} className="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-3 rounded font-medium">
+            <button onClick={function () { handleInteract("save"); }} className="flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-3 rounded-lg font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
               Save
             </button>
             <button
@@ -439,8 +439,8 @@ function ItemDetail() {
               disabled={!roadmapFullyComplete}
               title={!roadmapFullyComplete ? "Complete every roadmap topic above first" : ""}
               className={roadmapFullyComplete
-                ? "flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded font-medium"
-                : "flex-1 bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 py-3 rounded font-medium cursor-not-allowed"}
+                ? "flex-1 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                : "flex-1 bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500 py-3 rounded-lg font-medium cursor-not-allowed"}
             >
               Mark Complete
             </button>

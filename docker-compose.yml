@@ -19,6 +19,7 @@ services:
     environment:
       DATABASE_URL: postgresql://nexora_user:nexora_pass@db:5432/nexora_db
       JWT_SECRET_KEY: change_this_to_something_random_later
+      GOOGLE_CLIENT_ID: 760635428509-2e8c5semmtq7r6hkakvvnkkkv52ln6o1.apps.googleusercontent.com
     ports:
       - "8000:8000"
     depends_on:

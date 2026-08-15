@@ -41,24 +41,24 @@ function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 p-8">
+    <div className="min-h-screen page-enter bg-[#FAF9F6] dark:bg-slate-950 p-8">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center gap-4">
           <button
             onClick={function () { setNavOpen(true); }}
-            className="text-2xl leading-none text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg w-10 h-10 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700"
+            className="text-2xl leading-none text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg w-10 h-10 flex items-center justify-center hover:border-amber-400 transition-all duration-200 hover:scale-[1.05] active:scale-[0.95]"
             title="Menu"
           >
             ⋮
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+            <h1 className="text-2xl font-semibold text-slate-900 dark:text-white">
               {userName ? "Hello, " + userName + " \uD83D\uDC4B" : "Hello \uD83D\uDC4B"}
             </h1>
             <p className="text-slate-500 dark:text-slate-400 text-sm">Welcome back to NEXORA. Here's your personalized feed.</p>
           </div>
         </div>
-        <button onClick={toggleTheme} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-1.5 rounded text-sm border border-slate-300 dark:border-slate-700">
+        <button onClick={toggleTheme} className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white px-3 py-1.5 rounded-lg text-sm border border-slate-200 dark:border-slate-700 hover:border-amber-400 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]">
           {theme === "dark" ? "Light mode" : "Dark mode"}
         </button>
       </div>
@@ -69,19 +69,20 @@ function Dashboard() {
       {roadmapSummary && roadmapSummary.has_roadmap ? (
         <div
           onClick={function () { navigate("/roadmap"); }}
-          className="mb-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-6 cursor-pointer hover:opacity-95 transition-opacity"
+          className="mb-12 bg-[#12172B] rounded-2xl p-6 cursor-pointer hover:bg-[#1c2340] transition-all duration-200 hover:-translate-y-1 hover:shadow-lg relative overflow-hidden"
         >
-          <p className="text-indigo-100 text-sm mb-1">Learning Roadmap</p>
-          <h2 className="text-white text-xl font-bold mb-2">{roadmapSummary.goal}</h2>
-          <div className="w-full bg-white/20 rounded-full h-2 mb-2">
-            <div className="bg-white h-2 rounded-full" style={{ width: roadmapSummary.progress + "%" }} />
+          <div className="pointer-events-none absolute top-0 right-0 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl" />
+          <p className="text-amber-400 text-sm mb-1 relative z-10">Learning Roadmap</p>
+          <h2 className="text-white text-xl font-semibold mb-3 relative z-10">{roadmapSummary.goal}</h2>
+          <div className="w-full bg-white/10 rounded-full h-2 mb-2 relative z-10">
+            <div className="bg-amber-500 h-2 rounded-full" style={{ width: roadmapSummary.progress + "%" }} />
           </div>
-          <p className="text-indigo-100 text-sm">{roadmapSummary.progress}% complete - Continue your journey</p>
+          <p className="text-slate-300 text-sm relative z-10">{roadmapSummary.progress}% complete - Continue your journey</p>
         </div>
       ) : (
         <div
           onClick={function () { navigate("/roadmap"); }}
-          className="mb-12 bg-white dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-6 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors"
+          className="mb-12 bg-white dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-6 cursor-pointer hover:border-amber-400 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
         >
           <h2 className="text-slate-900 dark:text-white font-semibold mb-1">Start a Learning Roadmap</h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm">Get a personalized, structured path toward your career goal.</p>
@@ -91,10 +92,10 @@ function Dashboard() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendations.map(function (item) {
           return (
-            <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-xl p-6 flex flex-col cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors shadow-sm dark:shadow-none">
+            <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-2xl p-6 flex flex-col cursor-pointer border border-transparent hover:border-amber-400 transition-all duration-200 hover:-translate-y-1 hover:shadow-md shadow-sm dark:shadow-none">
               <div className="flex justify-between items-start mb-2">
                 <h2 className="text-slate-900 dark:text-white font-semibold text-lg">{item.title}</h2>
-                <span className="text-indigo-600 dark:text-indigo-400 text-sm font-medium whitespace-nowrap ml-2">
+                <span className="text-amber-600 dark:text-amber-400 text-sm font-medium whitespace-nowrap ml-2">
                   {Math.round(item.final_score * 100)}% Match
                 </span>
               </div>
@@ -113,9 +114,9 @@ function Dashboard() {
                 </ul>
               </div>
               <div className="flex gap-2 mt-auto">
-                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "like"); }} className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-sm font-medium">Like</button>
-                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "save"); }} className="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-2 rounded text-sm font-medium">Save</button>
-                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "dislike"); }} className="flex-1 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-2 rounded text-sm font-medium">Not Interested</button>
+                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "like"); }} className="flex-1 bg-amber-500 hover:bg-amber-400 text-[#12172B] py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]">Like</button>
+                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "save"); }} className="flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]">Save</button>
+                <button onClick={function (e) { e.stopPropagation(); handleInteract(item.item_id, "dislike"); }} className="flex-1 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-900 dark:text-white py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.03] active:scale-[0.97]">Not Interested</button>
               </div>
             </div>
           );
@@ -124,11 +125,11 @@ function Dashboard() {
 
       {trending.length > 0 ? (
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Trending Among Learners</h2>
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6">Trending Among Learners</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {trending.map(function (item) {
               return (
-                <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors shadow-sm dark:shadow-none">
+                <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-2xl p-6 cursor-pointer border border-transparent hover:border-amber-400 transition-all duration-200 hover:-translate-y-1 hover:shadow-md shadow-sm dark:shadow-none">
                   <h3 className="text-slate-900 dark:text-white font-semibold text-lg mb-2">{item.title}</h3>
                   <div className="flex justify-between items-center">
                     <span className="text-slate-500 dark:text-slate-400 text-sm">{item.difficulty}</span>
@@ -143,11 +144,11 @@ function Dashboard() {
 
       {explore.length > 0 ? (
         <div className="mt-12">
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Explore Something New</h2>
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6">Explore Something New</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {explore.map(function (item) {
               return (
-                <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-xl p-6 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors shadow-sm dark:shadow-none border-l-4 border-purple-500">
+                <div key={item.item_id} onClick={function () { navigate("/items/" + item.item_id); }} className="bg-white dark:bg-slate-800 rounded-2xl p-6 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-md shadow-sm dark:shadow-none border-l-4 border-amber-500">
                   <h3 className="text-slate-900 dark:text-white font-semibold text-lg mb-2">{item.title}</h3>
                   <div className="flex justify-between items-center">
                     <span className="text-slate-500 dark:text-slate-400 text-sm">{item.difficulty}</span>
