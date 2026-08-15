@@ -1,7 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from backend.app.database.session import engine
+from backend.app.models.tables import Base
+from sqlalchemy import text
 
 app = FastAPI(title="NEXORA API", version="0.1.0")
+
+# Create any missing tables (safe no-op if they already exist)
+Base.metadata.create_all(bind=engine)
+
+# Add any missing columns on existing tables (safe no-op if already applied)
+with engine.connect() as conn:
+    conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS google_id VARCHAR;"))
+    conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS auth_provider VARCHAR DEFAULT 'email';"))
+    conn.execute(text("ALTER TABLE users ALTER COLUMN hashed_password DROP NOT NULL;"))
+    conn.commit()
 
 app.add_middleware(
     CORSMiddleware,
@@ -46,9 +59,7 @@ def health_check():
     return {"status": "ok", "service": "NEXORA API"}
 from backend.app.api.course_roadmap import router as course_roadmap_router
 app.include_router(course_roadmap_router)
-
 from backend.app.api.recently_viewed import router as recently_viewed_router
 app.include_router(recently_viewed_router)
-
 from backend.app.api.saved_resources import router as saved_resources_router
 app.include_router(saved_resources_router)
