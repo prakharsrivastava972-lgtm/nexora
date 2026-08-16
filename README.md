@@ -187,5 +187,5 @@ python -m pytest tests/ -v
 - Proper migration tooling (Alembic) in place of ad hoc startup migrations
 
 ## Author
-
-Aditi Srivastava
+Aditi Srivastava 
+Prakhar Srivastava
