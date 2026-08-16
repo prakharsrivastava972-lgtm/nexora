@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /login
+Allow: /register
+Disallow: /dashboard
+Disallow: /analytics
+Disallow: /search
+Disallow: /items/
+Disallow: /my-courses
+Disallow: /saved
+Disallow: /saved-resources
+Disallow: /roadmap
+Disallow: /onboarding
+Disallow: /platform-stats
+
+Sitemap: https://nexora-seven-sepia.vercel.app/sitemap.xml
