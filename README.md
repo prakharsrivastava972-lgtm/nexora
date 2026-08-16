@@ -188,5 +188,5 @@ python -m pytest tests/ -v
 
 ## Author
 
-Prakhar Srivastava
-Aditi Srivastava
+-Prakhar Srivastava
+-Aditi Srivastava
